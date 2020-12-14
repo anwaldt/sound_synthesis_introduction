@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<link rel="stylesheet" href="/assets/css/webaudio_style.css">
+</head>
+
+<body>
+
+
+
+<p>Carrier:
+<input type="range" min="1" max="5000" value="440" class="slider" value="100" step="0.01"  oninput="carrier_freq(this.value)">
+</p>
+
+<p>Modulator:
+<input type="range" min="1" max="20000" value="500" class="slider" value="100" step="0.01"  oninput="modulator_freq(this.value)">
+</p>
+
+<p>Gain:
+<input type="range" min="0" max="1" value="0" class="slider" value="100" step="0.01"  oninput="set_gain(this.value)">
+</p>
+
+<div style="border:1px solid #808080;background-color:#808080;padding:1.2em; margin:0 auto;">
+Time Domain:
+<p>
+<canvas id='scope' width=400 height=200></canvas>
+</p>
+
+Frequency Domain:
+<p>
+<canvas id='spectrum' width=400 height=200></canvas>
+</p>
+</div>
+
+</body>
+
+<script type="text/javascript">
+
+var context = new AudioContext();
+
+var carrier = context.createOscillator();
+carrier.type = 'sine';
+carrier.frequency.setValueAtTime(180, context.currentTime);
+carrier.start();
+
+var modulator = context.createOscillator();
+modulator.type = 'sine';
+modulator.frequency.setValueAtTime(60, context.currentTime);
+modulator.start();
+
+modulator.connect(carrier.frequency);
+
+var gain = context.createGain();
+gain.gain.value = 0;
+
+
+
+carrier.connect(gain);
+gain.connect(context.destination);
+
+
+var analyser = context.createAnalyser();
+analyser.fftSize = 2048;
+gain.connect(analyser);
+
+analyser.minDecibels = -120;
+analyser.maxDecibels = 0;
+
+var scopeCtx = document.getElementById('scope').getContext('2d');
+var spectCtx = document.getElementById('spectrum').getContext('2d');
+
+draw();
+
+function draw() {
+  drawSpectrum(analyser, spectCtx);
+  drawScope(analyser, scopeCtx);
+
+  requestAnimationFrame(draw);
+}
+
+function drawSpectrum(analyser, ctx) {
+  var width = ctx.canvas.width;
+  var height = ctx.canvas.height;
+  var freqData = new Uint8Array(analyser.frequencyBinCount);
+  var scaling = height / 256;
+
+  analyser.getByteFrequencyData(freqData);
+
+  ctx.fillStyle = 'rgba(256, 256, 256, 0.1)';
+  ctx.fillRect(0, 0, width, height);
+
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = 'rgb(0, 0, 0)';
+  ctx.beginPath();
+
+  for (var x = 0; x < width; x++)
+    ctx.lineTo(x, height - freqData[x] * scaling);
+
+  ctx.stroke();
+}
+
+function drawScope(analyser, ctx) {
+  var width = ctx.canvas.width;
+  var height = ctx.canvas.height;
+  var timeData = new Uint8Array(analyser.frequencyBinCount);
+  var scaling = height / 256;
+  var risingEdge = 0;
+  var edgeThreshold = 1;
+
+  analyser.getByteTimeDomainData(timeData);
+
+  ctx.fillStyle = 'rgba(256, 256, 256, 0.1)';
+  ctx.fillRect(0, 0, width, height);
+
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = 'rgb(0, 0, 0)';
+  ctx.beginPath();
+
+  // No buffer overrun protection
+  while (timeData[risingEdge++] - 128 > 0 && risingEdge <= width);
+  if (risingEdge >= width) risingEdge = 0;
+
+  while (timeData[risingEdge++] - 128 < edgeThreshold && risingEdge <= width);
+  if (risingEdge >= width) risingEdge = 0;
+
+  for (var x = risingEdge; x < timeData.length && x - risingEdge < width; x++)
+    ctx.lineTo(x - risingEdge, height - timeData[x] * scaling);
+
+  ctx.stroke();
+}
+
+
+
+
+function carrier_freq(y)
+{
+carrier.frequency.setValueAtTime(y, context.currentTime);
+}
+
+
+function modulator_freq(y)
+{
+modulator.frequency.setValueAtTime(y, context.currentTime);
+}
+
+
+function set_gain(y)
+{
+gain.gain.value = y
+}
+
+
+</script>
+
+</html>
