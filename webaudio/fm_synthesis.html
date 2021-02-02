@@ -10,16 +10,20 @@
 
 
 
-<p>Carrier:
-<input type="range" min="1" max="5000" value="440" class="slider" value="100" step="0.01"  oninput="carrier_freq(this.value)">
+<p><p>Carrier (Hz): <span id="carrier_text"></span></p>
+<input type="range" min="1" max="5000" value="440" class="slider"   step="0.01"  oninput="carrier_freq(this.value)">
 </p>
 
-<p>Modulator:
-<input type="range" min="1" max="20000" value="500" class="slider" value="100" step="0.01"  oninput="modulator_freq(this.value)">
+<p>Modulator (Hz):
+<input type="range" min="1" max="20000" value="500" class="slider"  step="0.01"  oninput="modulator_freq(this.value)">
 </p>
 
-<p>Gain:
-<input type="range" min="0" max="1" value="0" class="slider" value="100" step="0.01"  oninput="set_gain(this.value)">
+<p>Modulation Depth (Hz):
+<input type="range" min="0" max="1000" value="0" class="slider"  step="0.01"  oninput="modulation_depth(this.value)">
+</p>
+
+<p><p>Gain: <span id="gain_text"></span></p>
+<input type="range" min="0" max="1" value="0" class="slider"   step="0.01"  oninput="set_gain(this.value)">
 </p>
 
 <div style="border:1px solid #808080;background-color:#808080;padding:1.2em; margin:0 auto;">
@@ -38,6 +42,9 @@ Frequency Domain:
 
 <script type="text/javascript">
 
+
+var textBox = document.getElementById('TEXTBOX_ID');
+
 var context = new AudioContext();
 
 var carrier = context.createOscillator();
@@ -50,12 +57,16 @@ modulator.type = 'sine';
 modulator.frequency.setValueAtTime(60, context.currentTime);
 modulator.start();
 
-modulator.connect(carrier.frequency);
-
 var gain = context.createGain();
 gain.gain.value = 0;
 
+var mod_depth = context.createGain();
+mod_depth.gain.value = 100;
 
+
+modulator.connect(mod_depth);
+
+mod_depth.connect(carrier.detune);
 
 carrier.connect(gain);
 gain.connect(context.destination);
@@ -137,6 +148,8 @@ function drawScope(analyser, ctx) {
 function carrier_freq(y)
 {
 carrier.frequency.setValueAtTime(y, context.currentTime);
+var output = document.getElementById('carrier_text');
+output.innerHTML = y;
 }
 
 
@@ -145,10 +158,16 @@ function modulator_freq(y)
 modulator.frequency.setValueAtTime(y, context.currentTime);
 }
 
-
 function set_gain(y)
 {
 gain.gain.value = y
+var output = document.getElementById('gain_text');
+output.innerHTML = y;
+}
+
+function modulation_depth(y)
+{
+mod_depth.gain.value = y
 }
 
 

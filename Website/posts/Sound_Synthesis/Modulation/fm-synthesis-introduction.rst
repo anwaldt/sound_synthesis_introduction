@@ -42,6 +42,11 @@ in the style of MUSIC IV.
 .. [Fig.1] *Flow chart for FM with two operators (Chowning, 1973).*
 
 
+-----
+
+
+.. raw:: html
+   :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_2020/webaudio/fm_synthesis.html
 
 -----
 

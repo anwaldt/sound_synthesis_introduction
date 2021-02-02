@@ -8,4 +8,11 @@
 .. type: text
 .. has_math: true
 
-   
+
+
+Wavefolding is a speacial case of waveshaping, working with periodic transfer functions. The following example calculates the spectrum of a sinusoidal function, folded with a sinusoidal transfer function. 
+
+
+
+.. raw:: html
+   :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_2020/webaudio/wavefolder.html
