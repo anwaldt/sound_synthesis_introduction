@@ -15,4 +15,4 @@ Wavefolding is a speacial case of waveshaping, working with periodic transfer fu
 
 
 .. raw:: html
-   :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_2020/webaudio/wavefolder.html
+   :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/webaudio/wavefolder.html

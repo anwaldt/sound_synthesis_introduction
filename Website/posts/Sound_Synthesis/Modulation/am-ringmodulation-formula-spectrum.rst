@@ -8,7 +8,7 @@
 .. type: text
 .. has_math: true
 
-.. include:: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_2020/Website/jupyter/am_ringmod.rst
+.. include:: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/Website/jupyter/am_ringmod.rst
       
 
 ------

@@ -10,4 +10,4 @@
 
    
 
-.. include:: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_2020/Website/jupyter/fm_spectra.rst   
+.. include:: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/Website/jupyter/fm_spectra.rst   

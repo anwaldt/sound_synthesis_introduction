@@ -9,4 +9,4 @@
 .. type: text
 
 
-.. include:: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_2020/Website/jupyter/sampling_theorem.rst
+.. include:: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/Website/jupyter/sampling_theorem.rst

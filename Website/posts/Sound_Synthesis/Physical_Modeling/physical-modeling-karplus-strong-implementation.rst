@@ -14,7 +14,7 @@ plucked_string_444.png
 -----
 
 
-.. include:: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_2020/Website/jupyter/karplus_strong.rst
+.. include:: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/Website/jupyter/karplus_strong.rst
 
 	     
 References

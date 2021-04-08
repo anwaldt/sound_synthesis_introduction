@@ -52,7 +52,7 @@ in many aspects.
 The following interactive example implements a simple chain of VCO->VCF->VCA:
 
 .. raw:: html
-   :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_2020/webaudio/subtractive.html
+   :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/webaudio/subtractive.html
 
 	  
 -----

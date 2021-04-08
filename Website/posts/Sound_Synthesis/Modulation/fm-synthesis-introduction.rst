@@ -46,7 +46,7 @@ in the style of MUSIC IV.
 
 
 .. raw:: html
-   :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_2020/webaudio/fm_synthesis.html
+   :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/webaudio/fm_synthesis.html
 
 -----
 
