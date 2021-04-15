@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+
+<blockquote style="border: 2px solid #122; padding: 10px; background-color: #ccc;">
+
+<head>
+<title>Amplitude Modulation</title>
+</head>
+
+<body>
+<p>Amplitude Modulation.</p>
+
+<p>
+<span>
+Carrier Frequency
+<input id="carrier" type="range" min="10" max="10000" step="1" value="440" oninput="frequency(this.value);">
+</span>
+</p>
+<p>
+<span>
+Modulator Frequeny <input id="modulator" type="range" min="10" max="10000" step="1" value="440" oninput="modFequency(this.value);">
+</span>
+</p>
+<p>
+<span>
+Modulator Offset <input id="modulator" type="range" min="0" max="2" step="0.01" value="0" oninput="modOffset(this.value);">
+</span>
+</p>
+
+<p>
+<canvas id="canvas" width="800" height="400" ></canvas>
+</p>
+<p>
+<canvas id="oscilloscope"  width="800" height="400"></canvas>
+</p>
+
+</body>
+
+</blockquote>
+
+
+<script>
+var audioContext = new window.AudioContext
+var oscillator   = audioContext.createOscillator()
+var modulator    = audioContext.createOscillator()
+var gainNode     = audioContext.createGain()
+var offset       = audioContext.createConstantSource()
+var analyzer     = audioContext.createAnalyser();
+analyzer.fftSize = 2048;
+
+
+const analyser = audioContext.createAnalyser();
+gainNode.connect(analyser);
+
+var spectCtx     = document.getElementById('canvas').getContext('2d');
+
+var out;
+
+gainNode.gain.value = 0
+
+modulator.connect(gainNode.gain)
+offset.connect(gainNode.gain)
+
+oscillator.connect(gainNode)
+gainNode.connect(analyzer)
+gainNode.connect(audioContext.destination)
+
+draw()
+drawOscilloscope()
+
+oscillator.start(0)
+modulator.start(0)
+offset.start()
+
+function frequency(y)
+{
+oscillator.frequency.value = y
+}
+
+function modFequency(y)
+{
+modulator.frequency.value = y
+}
+
+
+
+function modOffset(y)
+{
+offset.offset.value = y
+}
+
+
+function draw() {
+  plotSpectrum(analyzer, spectCtx);
+
+  requestAnimationFrame(draw);
+}
+
+function plotSpectrum(analyser, ctx)
+{
+  var width = ctx.canvas.width;
+  var height = ctx.canvas.height;
+  var freqData = new Uint8Array(analyser.frequencyBinCount);
+  var scaling = height / 512;
+
+  analyser.getByteFrequencyData(freqData);
+
+  // for the look
+  ctx.fillStyle = 'rgba(10, 10, 10, 0.2)';
+  ctx.fillRect(0, 0, width, height);
+  ctx.lineWidth = 1.5;
+  ctx.strokeStyle = 'rgb(0, 200, 220,0.5)';
+  ctx.beginPath();
+
+  for (var x = 0; x < width; x++)
+    ctx.lineTo(x, height - freqData[x] * scaling);
+
+  ctx.stroke();
+
+
+}
+
+function drawOscilloscope() {
+        requestAnimationFrame(drawOscilloscope);
+
+        const scopeCanvas = document.getElementById('oscilloscope');
+        const scopeContext = scopeCanvas.getContext('2d');
+
+        scopeCanvas.width = 800;
+        scopeCanvas.height = 200;
+
+        scopeContext.clearRect(0, 0, scopeCanvas.width, scopeCanvas.height);
+  scopeContext.beginPath();
+
+
+for(let i = 0; i < 800; i++) {
+const x = i;
+const y = ( 0.5 + (i / 800) ) * scopeCanvas.height;
+
+
+        if(i == 0) {
+scopeContext.moveTo(x, y);
+} else {
+scopeContext.lineTo(x, y);
+}
+}
+
+        scopeContext.strokeStyle= '#5661FA';
+        scopeContext.lineWidth = 2;
+        scopeContext.stroke();
+}
+
+</script>
+</html>

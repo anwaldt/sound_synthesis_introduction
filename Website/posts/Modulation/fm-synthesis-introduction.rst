@@ -1,10 +1,10 @@
 .. title: FM Synthesis: History & Backgroud
 .. slug: fm-synthesis-history
 .. date: 2020-05-11 14:50:50 UTC
-.. tags: 
+.. tags:
 .. category: _sound_synthesis:fm-synthesis
-.. link: 
-.. description: 
+.. link:
+.. description:
 .. type: text
 .. has_math: true
 
@@ -18,7 +18,7 @@ and started experiments in sound synthesis.
 Although frequency modulation was already a method used in
 analog sound synthesis, it was  Chowning who
 developed the concept of frequency modulation (FM)
-synthesis with digital means in th late 1960s. 
+synthesis with digital means in th late 1960s.
 
 The concept of frequency modulation, already used for
 transmitting radio signals, was transferred to the
@@ -31,22 +31,18 @@ frequency modulation can be written as:
 
 \\[ y(t) =  \\sin(2 \\pi f_c + I_m  \\sin(2 \\pi f_m t) ) \\]
 
-:math:`f_c` denotes the so called carrier frequency, 
+:math:`f_c` denotes the so called carrier frequency,
 :math:`f_m` the modulation frequency and :math:`I_m`
 the modulation index.
 [Fig.1]_ shows a flow chart for this operation
 in the style of MUSIC IV.
 
 .. figure:: /images/Sound_Synthesis/modulation/fm-chowning-flow.png
-	    :width: 300	    
+	    :width: 300
 .. [Fig.1] *Flow chart for FM with two operators (Chowning, 1973).*
 
 
------
 
-
-.. raw:: html
-   :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/webaudio/fm_synthesis.html
 
 -----
 
@@ -62,7 +58,7 @@ are conncected in different configurations, for
 generating richer timbres.
 
 .. figure:: /images/Sound_Synthesis/modulation/fm-chowning-flow-2.png
-	    :width: 400	    
+	    :width: 400
 .. [Fig.2] *Flow chart for dynamic FM with two operators (Chowning, 1973).*
 
 
@@ -75,8 +71,8 @@ to generate desired sounds but they need to be
 programmed or designed.
 However, there are attempts towards an automatic
 parametrization of FM synthesizers (Horner, 2003).
-	   
-	   
+
+
 -----
 
 John Chowning, composer by profession, combined the novel
@@ -95,7 +91,7 @@ or the re-occuring short precussive events.
 
 .. youtube:: kSbTOB5ft5c
 	     :width: 400
-	     
+
 -----
 
 References

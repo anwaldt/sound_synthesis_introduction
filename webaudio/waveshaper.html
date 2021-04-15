@@ -3,26 +3,21 @@
 <html>
 
 <head>
-<link rel="stylesheet" href="/assets/css/webaudio_style.css">
+  <link rel="stylesheet" href="/assets/css/webaudio_style.css">
 </head>
 
 <body>
 
-
-
-<p><p>Carrier (Hz): <span id="carrier_text"></span></p>
-<input type="range" min="1" max="2000" value="440" class="slider"   step="0.01"  oninput="carrier_freq(this.value)">
+  <p><p>Pitch (Hz): <span id="oscillatorA_text"></span></p>
+  <input type="range" min="1" max="5000" value="440" class="slider"   step="0.01"  oninput="set_osc_freq(this.value)">
 </p>
 
-<p>Modulator (Hz): <span id="modulator_text"></span></p>
-<input type="range" min="1" max="2000" value="500" class="slider"  step="0.01"  oninput="modulator_freq(this.value)">
+<p>Pre-Gain:
+  <input type="range" min="0" max="10" value="1" class="slider"  step="0.01"  oninput="set_pre_gain(this.value)">
 </p>
 
-<p>Modulation Depth (Hz): <span id="index_text"></span></p>
-<input type="range" min="0" max="2000" value="0" class="slider"  step="0.01"  oninput="modulation_depth(this.value)">
-</p>
 
-<p><p>Gain: <span id="gain_text"></span></p>
+<p><p>Output Gain: <span id="gain_text"></span></p>
 <input type="range" min="0" max="1" value="0" class="slider"   step="0.01"  oninput="set_gain(this.value)">
 </p>
 
@@ -44,37 +39,31 @@
 
 <script type="text/javascript">
 
+var context     = new AudioContext();
 
-var textBox = document.getElementById('TEXTBOX_ID');
+var oscillatorA = context.createOscillator();
+var pre_gain    = context.createGain();
+var shaper      = context.createWaveShaper();
+var gain        = context.createGain();
+var analyser    = context.createAnalyser();
 
-var context = new AudioContext();
 
-var carrier = context.createOscillator();
-carrier.type = 'sine';
-carrier.frequency.setValueAtTime(180, context.currentTime);
-carrier.start();
+oscillatorA.type = 'sine';
+oscillatorA.frequency.setValueAtTime(180, context.currentTime);
+oscillatorA.start();
+oscillatorA.connect(pre_gain);
 
-var modulator = context.createOscillator();
-modulator.type = 'sine';
-modulator.frequency.setValueAtTime(60, context.currentTime);
-modulator.start();
+pre_gain.gain.value = 1;
+pre_gain.connect(shaper);
 
-var gain = context.createGain();
+shaper.curve = makeDistortionCurve(10);
+shaper.connect(gain);
+
+gain.connect(context.destination);
 gain.gain.value = 0;
 
-var mod_depth = context.createGain();
-mod_depth.gain.value = 100;
 
 
-modulator.connect(mod_depth);
-
-mod_depth.connect(carrier.detune);
-
-carrier.connect(gain);
-gain.connect(context.destination);
-
-
-var analyser = context.createAnalyser();
 analyser.fftSize = 2048;
 gain.connect(analyser);
 
@@ -109,7 +98,7 @@ function drawSpectrum(analyser, ctx) {
   ctx.beginPath();
 
   for (var x = 0; x < width; x++)
-    ctx.lineTo(x, height - freqData[x] * scaling);
+  ctx.lineTo(x, height - freqData[x] * scaling);
 
   ctx.stroke();
 }
@@ -120,7 +109,7 @@ function drawScope(analyser, ctx) {
   var timeData = new Uint8Array(analyser.frequencyBinCount);
   var scaling = height / 256;
   var risingEdge = 0;
-  var edgeThreshold = 1;
+  var edgeThreshold = 0.1;
 
   analyser.getByteTimeDomainData(timeData);
 
@@ -139,7 +128,7 @@ function drawScope(analyser, ctx) {
   if (risingEdge >= width) risingEdge = 0;
 
   for (var x = risingEdge; x < timeData.length && x - risingEdge < width; x++)
-    ctx.lineTo(x - risingEdge, height - timeData[x] * scaling);
+  ctx.lineTo(x - risingEdge, height - timeData[x] * scaling);
 
   ctx.stroke();
 }
@@ -147,35 +136,39 @@ function drawScope(analyser, ctx) {
 
 
 
-function carrier_freq(y)
+function set_osc_freq(y)
 {
-carrier.frequency.setValueAtTime(y, context.currentTime);
-var output = document.getElementById('carrier_text');
-output.innerHTML = y;
+  oscillatorA.frequency.setValueAtTime(y, context.currentTime);
+  var output = document.getElementById('oscillatorA_text');
+  output.innerHTML = y;
 }
 
 
-function modulator_freq(y)
+function set_pre_gain(y)
 {
-modulator.frequency.setValueAtTime(y, context.currentTime);
-var output = document.getElementById('modulator_text');
-output.innerHTML = y;
+  pre_gain.gain.value = y
 }
+
 
 function set_gain(y)
 {
-gain.gain.value = y
-var output = document.getElementById('gain_text');
-output.innerHTML = y;
+  gain.gain.value = y
 }
 
-function modulation_depth(y)
-{
-mod_depth.gain.value = y
-var output = document.getElementById('index_text');
-output.innerHTML = y;
-}
 
+function makeDistortionCurve(amount) {
+  var k = typeof amount === 'number' ? amount : 50,
+  n_samples = 44100,
+  curve = new Float32Array(n_samples),
+  deg = Math.PI / 180,
+  i = 0,
+  x;
+  for ( ; i < n_samples; ++i ) {
+    x = i * 2 / n_samples - 1;
+    curve[i] = ( 3 + k ) * x * 20 * deg / ( Math.PI + k * Math.abs(x) );
+  }
+  return curve;
+};
 
 </script>
 
