@@ -1,12 +1,13 @@
 .. title: AM & Ringmodulation: Introduction
 .. slug: am-ringmodulation-introduction
 .. date: 2020-05-11 14:55:42 UTC
-.. tags: 
+.. tags:
 .. category: _sound_synthesis:am-ringmod
-.. link: 
-.. description: 
+.. link:
+.. description:
 .. type: text
 .. has_math: true
+.. priority: 0
 
 
 Amplitude modulation (AM) and Ringmodulation are
@@ -15,7 +16,7 @@ variation. For both, formula and signal flow
 diagram are the same:
 
 :math:`\displaystyle y(t) = x(t) \cdot m(t)`
-   
+
 
 Ringmodulation is an audio effect, used since the
 early days of analog sound synthesis and electronic music.
@@ -27,9 +28,4 @@ in Mixtur (1964):
 	     :width: 400
 
 
-		     
-------
-		
-`Next Section </Sound_Synthesis/Modulation_Distortion/am-ringmodulation-formula-spectrum>`_
-	   
-`Back to Sound Synthesis Contents </teaching/sound-synthesis/>`_
+ 

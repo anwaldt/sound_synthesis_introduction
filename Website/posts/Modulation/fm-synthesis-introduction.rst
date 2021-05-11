@@ -7,18 +7,17 @@
 .. description:
 .. type: text
 .. has_math: true
+.. priority: 0
 
 
 A Brief History
 ---------------
 
-As mentioned in `Introduction II </Sound_Synthesis/Intro_II/synthesis-algorithms-overwiew-1>`_, John Chowning brought a copy of the MUSIC IV software
+As mentioned in `Introduction II </Sound_Synthesis/Intro_II/synthesis-algorithms-overview-1>`_, John Chowning brought a copy of the MUSIC IV software
 from Bell Labs to Stanford, where he founded the CCRMA,
 and started experiments in sound synthesis.
 Although frequency modulation was already a method used in
-analog sound synthesis, it was  Chowning who
-developed the concept of frequency modulation (FM)
-synthesis with digital means in th late 1960s.
+analog sound synthesis, it was Chowning who developed the concept of frequency modulation (FM) synthesis with digital means in the late 1960s.
 
 The concept of frequency modulation, already used for
 transmitting radio signals, was transferred to the
@@ -54,7 +53,7 @@ Especially the change of the modulation index over time
 is important, since it results in percussive sound qualities.
 In musical applications, multiple carriers and
 modulators, referred to as operators,
-are conncected in different configurations, for
+are connected in different configurations, for
 generating richer timbres.
 
 .. figure:: /images/Sound_Synthesis/modulation/fm-chowning-flow-2.png

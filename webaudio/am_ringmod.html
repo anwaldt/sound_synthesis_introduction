@@ -1,154 +1,168 @@
 <!doctype html>
 <html>
 
-<blockquote style="border: 2px solid #122; padding: 10px; background-color: #ccc;">
-
-<head>
-<title>Amplitude Modulation</title>
-</head>
-
-<body>
-<p>Amplitude Modulation.</p>
 
 <p>
-<span>
-Carrier Frequency
-<input id="carrier" type="range" min="10" max="10000" step="1" value="440" oninput="frequency(this.value);">
-</span>
-</p>
-<p>
-<span>
-Modulator Frequeny <input id="modulator" type="range" min="10" max="10000" step="1" value="440" oninput="modFequency(this.value);">
-</span>
-</p>
-<p>
-<span>
-Modulator Offset <input id="modulator" type="range" min="0" max="2" step="0.01" value="0" oninput="modOffset(this.value);">
-</span>
+  Carrier Frequency
+  <input class="slider" id="carrier" type="range" min="10" max="10000" step="1" value="440" oninput="frequency(this.value);">
 </p>
 
 <p>
-<canvas id="canvas" width="800" height="400" ></canvas>
-</p>
-<p>
-<canvas id="oscilloscope"  width="800" height="400"></canvas>
+  Modulator Frequeny
+  <input class="slider"  id="modulator" type="range" min="1" max="10000" step="1" value="440" oninput="modFequency(this.value);">
 </p>
 
+<p>
+  Modulator Offset
+  <input class="slider"  id="modulator" type="range" min="0" max="1" step="0.01" value="0" oninput="modOffset(this.value);">
+</p>
+
+<p><p>Output Gain: <span id="gain_text"></span></p>
+<input type="range" min="0" max="1" value="0" class="slider"   step="0.01"  oninput="set_gain(this.value)">
+</p>
+
+<div class="scope-box">
+
+  Time Domain:
+  <p>
+    <canvas id='scope' width=400 height=200></canvas>
+  </p>
+
+  Frequency Domain:
+  <p>
+    <canvas id='spectrum' width=400 height=200></canvas>
+  </p>
+</div>
 </body>
 
-</blockquote>
 
 
 <script>
-var audioContext = new window.AudioContext
+
+var audioContext = new window.AudioContext;
+
 var oscillator   = audioContext.createOscillator()
 var modulator    = audioContext.createOscillator()
 var gainNode     = audioContext.createGain()
 var offset       = audioContext.createConstantSource()
-var analyzer     = audioContext.createAnalyser();
-analyzer.fftSize = 2048;
+var outgain     = audioContext.createGain()
 
 
-const analyser = audioContext.createAnalyser();
-gainNode.connect(analyser);
+const analyser   = audioContext.createAnalyser();
 
-var spectCtx     = document.getElementById('canvas').getContext('2d');
+analyser.fftSize = 2048;
+analyser.minDecibels = -120;
+analyser.maxDecibels = 0;
 
-var out;
+var scopeCtx = document.getElementById('scope').getContext('2d');
+var spectCtx = document.getElementById('spectrum').getContext('2d');
+
+
 
 gainNode.gain.value = 0
+analyser.fftSize    = 2048;
+
+
+modulator.start(0)
+offset.start()
+oscillator.start(0)
 
 modulator.connect(gainNode.gain)
 offset.connect(gainNode.gain)
 
 oscillator.connect(gainNode)
-gainNode.connect(analyzer)
-gainNode.connect(audioContext.destination)
+
+gainNode.connect(outgain)
+
+outgain.connect(audioContext.destination)
+outgain.connect(analyser)
+outgain.gain.value = 0
+
 
 draw()
 drawOscilloscope()
 
-oscillator.start(0)
-modulator.start(0)
-offset.start()
 
 function frequency(y)
 {
-oscillator.frequency.value = y
+  oscillator.frequency.value = y
 }
 
 function modFequency(y)
 {
-modulator.frequency.value = y
+  modulator.frequency.value = y
 }
-
-
 
 function modOffset(y)
 {
-offset.offset.value = y
+  offset.offset.value = y
 }
 
+function set_gain(y)
+{
+  outgain.gain.value = y
+}
 
-function draw() {
-  plotSpectrum(analyzer, spectCtx);
-
+function draw()
+{
+  drawSpectrum(analyser, spectCtx);
+  drawScope(analyser, scopeCtx);
   requestAnimationFrame(draw);
 }
 
-function plotSpectrum(analyser, ctx)
-{
+function drawSpectrum(analyser, ctx) {
   var width = ctx.canvas.width;
   var height = ctx.canvas.height;
   var freqData = new Uint8Array(analyser.frequencyBinCount);
-  var scaling = height / 512;
+  var scaling = height / 256;
 
   analyser.getByteFrequencyData(freqData);
 
-  // for the look
-  ctx.fillStyle = 'rgba(10, 10, 10, 0.2)';
+  ctx.fillStyle = 'rgba(256, 256, 256, 0.1)';
   ctx.fillRect(0, 0, width, height);
-  ctx.lineWidth = 1.5;
-  ctx.strokeStyle = 'rgb(0, 200, 220,0.5)';
+
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = 'rgb(0, 0, 0)';
   ctx.beginPath();
 
   for (var x = 0; x < width; x++)
-    ctx.lineTo(x, height - freqData[x] * scaling);
+  ctx.lineTo(x, height - freqData[x] * scaling);
 
   ctx.stroke();
-
-
 }
 
-function drawOscilloscope() {
-        requestAnimationFrame(drawOscilloscope);
+function drawScope(analyser, ctx)
+{
+  var width      = ctx.canvas.width;
+  var height     = ctx.canvas.height;
+  var timeData   = new Uint8Array(analyser.frequencyBinCount);
+  var scaling    = height / 256;
+  var risingEdge = 0;
+  var edgeThreshold = 0.1;
 
-        const scopeCanvas = document.getElementById('oscilloscope');
-        const scopeContext = scopeCanvas.getContext('2d');
+  analyser.getByteTimeDomainData(timeData);
 
-        scopeCanvas.width = 800;
-        scopeCanvas.height = 200;
+  ctx.fillStyle = 'rgba(256, 256, 256, 0.1)';
+  ctx.fillRect(0, 0, width, height);
 
-        scopeContext.clearRect(0, 0, scopeCanvas.width, scopeCanvas.height);
-  scopeContext.beginPath();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = 'rgb(0, 0, 0)';
+  ctx.beginPath();
 
+  // No buffer overrun protection
+  while (timeData[risingEdge++] - 128 > 0 && risingEdge <= width);
+  if (risingEdge >= width) risingEdge = 0;
 
-for(let i = 0; i < 800; i++) {
-const x = i;
-const y = ( 0.5 + (i / 800) ) * scopeCanvas.height;
+  while (timeData[risingEdge++] - 128 < edgeThreshold && risingEdge <= width);
+  if (risingEdge >= width) risingEdge = 0;
 
+  for (var x = risingEdge; x < timeData.length && x - risingEdge < width; x++)
+  ctx.lineTo(x - risingEdge, height - timeData[x] * scaling);
 
-        if(i == 0) {
-scopeContext.moveTo(x, y);
-} else {
-scopeContext.lineTo(x, y);
+  ctx.stroke();
 }
-}
 
-        scopeContext.strokeStyle= '#5661FA';
-        scopeContext.lineWidth = 2;
-        scopeContext.stroke();
-}
+
 
 </script>
 </html>

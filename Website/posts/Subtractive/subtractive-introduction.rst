@@ -6,6 +6,7 @@
 .. link:
 .. description:
 .. type: text
+.. priority: 1
 
 Subtractive synthesis is probably the most famous
 and most popular method of  sound synthesis.

@@ -9,7 +9,6 @@
 .. has_math: true
 
 
-
 Wavefolding is a special case of waveshaping, working with periodic transfer functions. Depending on the pre-gain, the source signal gets *folded* back, one a maximum of the transfer function is reached. Compared to the previously introduced soft clipping or other methods of waveshaping, this adds many strong harmonics.
 
 ----
@@ -18,7 +17,7 @@ Transfer Function
 -----------------
 
 .. raw:: html
-   :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/Jupyter/wavefolder-function.html
+   :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/Jupyter/wavefolder.html
 
 
 -----

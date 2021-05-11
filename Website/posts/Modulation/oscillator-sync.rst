@@ -7,3 +7,4 @@
 .. description:
 .. type: text
 .. has_math: true
+.. priority: 6

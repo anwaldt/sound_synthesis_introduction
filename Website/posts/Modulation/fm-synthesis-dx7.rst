@@ -1,11 +1,12 @@
 .. title: FM Synthesis: DX7
 .. slug: fm-synthesis-dx7
 .. date: 2020-05-11 16:23:32 UTC
-.. tags: 
+.. tags:
 .. category: _sound_synthesis:fm-synthesis
-.. link: 
-.. description: 
+.. link:
+.. description:
 .. type: text
+.. priority: 7
 
 FM synthesis was not only an outstanding method
 for experimental music but landed a major commercial success.
@@ -20,7 +21,7 @@ It was also the breakthrough of digital sound synthesis,
 using the full potential with MIDI.
 
 
-   
+
 .. figure:: /images/Sound_Synthesis/modulation/yamaha_dx7_angle2.jpg
 	    :width: 400
 .. [Fig.1] *Yamaha DX7.*
@@ -63,7 +64,7 @@ The DX7 in 80s Pop
     - 1986
     - marimbas
     - starting 1:40
-  
+
     https://youtu.be/V4kWpi2HnPU
 
 
@@ -72,7 +73,7 @@ The DX7 in 80s Pop
 
     - 1986
     - FM bass
-  
+
     https://youtu.be/siwpn14IE7E
 
 

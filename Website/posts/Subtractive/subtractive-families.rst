@@ -1,11 +1,12 @@
 .. title: Subtractive: Families
 .. slug: subtractive-families
 .. date: 2020-05-17 09:39:35 UTC
-.. tags: 
+.. tags:
 .. category: _sound_synthesis:subtractive
-.. link: 
-.. description: 
+.. link:
+.. description:
 .. type: text
+.. priority: 0
 
 Subtractive Families
 ====================
@@ -44,7 +45,7 @@ and Don Buchla on the west coast.
     approach in a rack with a keyboard.
     It could hence be performed like a
     typical piano-like instrument.
-    
+
 - Buchla 100 (1965)
   - *Silver Apples of the Moon*, Morton Subotnick, 1967
 
@@ -54,7 +55,7 @@ and Don Buchla on the west coast.
 
 .. youtube:: 3G1hRNLlYpg
 	     :width: 400
-	     
+
 -----
 
 Analog Monophonic
@@ -80,8 +81,8 @@ disseminated and used.
  Chick Corea's Minimoog solo, starting at 4:20,
  is a prime example:
 
- .. youtube:: sa21WPH4_U4	    
-	     
+ .. youtube:: sa21WPH4_U4
+
 -----
 
 **EMS VCS 3 (1969)**
@@ -113,7 +114,7 @@ disseminated and used.
 
   .. figure:: /images/Sound_Synthesis/subtractive/tb303big.jpg
     :width: 600
-	    
+
 -----
 
   Due to the quirky filters it failed as a
@@ -125,8 +126,8 @@ disseminated and used.
   .. youtube:: loLocHuYqLs
     :width: 400
 
------	    
-       
+-----
+
 Analog Polyphonic
 -----------------
 
@@ -146,7 +147,7 @@ or for bass lines.
   .. youtube:: AbWNZkoQHuE
 
 ----
-	       
+
 **Sequential Circuits Prophet-5**
 
 ---
@@ -164,7 +165,7 @@ or for bass lines.
  - 1981
 
 -----
-   
+
 Virtual Analog
 --------------
 
@@ -198,7 +199,7 @@ warmth but are tighter in sound.
 
  - 1997
 
------   
+-----
 
 **Yamaha AN1x**
 

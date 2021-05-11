@@ -1,14 +1,16 @@
 .. title: Physical Modeling: Waveguides - Implementation
 .. slug: physical-modeling-waveguides-implementation
 .. date: 2020-06-06 14:39:54 UTC
-.. tags: 
+.. tags:
 .. category: _sound_synthesis:physical
-.. link: 
-.. description: 
+.. link:
+.. description:
 .. type: text
 .. has_math: true
 
-.. include:: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/Website/jupyter/waveguides.rst
+
+.. raw:: html
+   :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/Jupyter/waveguides.html
 
 -----
 

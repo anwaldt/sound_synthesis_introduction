@@ -1,18 +1,18 @@
 .. title: Sampling: Introduction
 .. slug: sampling-introduction
 .. date: 2020-05-26 13:08:26 UTC
-.. tags: 
+.. tags:
 .. category: _sound_synthesis:sampling
-.. link: 
-.. description: 
+.. link:
+.. description:
 .. type: text
 
-Pierre Schaeffer & Musique Concrète
------------------------------------
+First Compositions & Musique Concrète
+-------------------------------------
 
-The use of recorded material for musical compositions
-dates back to Pierre Schaeffer, who started experiments
-with turntables after World War II.
+Halim El-Dabh was probably the first person to compose musical works with previously recorded material. His tape piece *The Expression of Zaar* dates back to 1944 and was realized in Cairo, Egypt.
+Only slightly later, after World War II, Pierre Schaeffer
+started his experiments with turntables.
 He recorded environmental sounds and musical instruments,
 arranged them, altered the playback
 speed and used loops in what then became *musique concrète*.
@@ -21,7 +21,7 @@ a completely novel experience in th 1940s.
 
 Although an engineer by profession, Pierre Schaeffer did
 not only explore the technical means for composing with
-recorded sound. With the theory of the *objet sonore* he 
+recorded sound. With the theory of the *objet sonore* he
 also lay the foundation for a theoretical and aesthetical discourse
 of acousmatic music (Schaeffer, 2012).
 
@@ -33,7 +33,7 @@ techniques.
 
 .. youtube:: CTf0yE15zzI
 	     :width: 500
-		     
+
 -----
 
 After the first experiments, Schaeffer started
@@ -72,7 +72,7 @@ Digital Sampling
 
 Early devices capable of digital sampling are
 the *Fairlight CMI* (1979) and the *Synclavier II* (1980).
-These expensive, bulky devices were already used 
+These expensive, bulky devices were already used
 in various productions.
 
 **Linn Drum**
@@ -91,6 +91,3 @@ References
 
 .. publication_list:: bibtex/sampling.bib
 	   :style: unsrt
-
-
-		   

@@ -27,4 +27,4 @@ Interactive Example
 .. raw:: html
   :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/webaudio/additive_sawtooth.html
 
-In contrast to the triangular wave, the interactive example shows the occurrence of ripples at the steep edges of the waveform. The higher the number of partials, the denser the ripples. This is referred to as the Gibb's phenomenon.
+In contrast to the triangular wave, the interactive example shows the occurrence of ripples at the steep edges of the waveform. The higher the number of partials, the denser the ripples. This is referred to as the Gibbs phenomenon.

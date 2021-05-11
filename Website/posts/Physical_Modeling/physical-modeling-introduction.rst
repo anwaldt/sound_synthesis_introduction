@@ -1,22 +1,22 @@
 .. title: Physical Modeling: Introduction
 .. slug: physical-modeling-introduction
 .. date: 2020-06-05 08:37:44 UTC
-.. tags: 
+.. tags:
 .. category: _sound_synthesis:physical
-.. link: 
-.. description: 
+.. link:
+.. description:
 .. type: text
 .. has_math: true
 
 
 Physical modeling emulates actual physical
 processes with digital means -
-oscillators, resonators and acoustic impedances   
+oscillators, resonators and acoustic impedance
 are modeled with buffers and filters, respectively
 LTI systems.
 Although first realized when computers had sufficient
-power, the foudations are much older.
-Hiller et al. (1971) were the first to transport 
+power, the foundations are much older.
+Hiller et al. (1971) were the first to transport
 the 1774 wave equation by d'Alambert to the digital
 domain for synthesizing sounds of plucked strings.
 
@@ -53,7 +53,7 @@ Software Instruments
 - Organteq Alpha
 - Strum GS 2
 - AAS Chromophone 2
-  
+
 -----
 
 
@@ -68,7 +68,7 @@ small embedded systems, various modules exist on the market:
  :width: 400
 
 .. figure:: /images/Sound_Synthesis/physical_modeling/rings.jpg
- :width: 400  
+ :width: 400
 
 
 
@@ -86,9 +86,9 @@ using the IRAM software Modalys:
 -----
 
 http://www.tutschku.com/content/works-eikasia.en.php
-	     
+
 References
 ==========
 
 .. publication_list:: bibtex/physical_modeling.bib
-	   :style: unsrt	     
+	   :style: unsrt
