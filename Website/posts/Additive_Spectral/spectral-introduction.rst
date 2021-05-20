@@ -7,7 +7,7 @@
 .. description:
 .. type: text
 .. has_math: true
-
+.. priority: 1
 
 
 
@@ -121,6 +121,8 @@ respectively fades and amplitudes.
 Early Digital
 =============
 
+**Max Mathews**
+
 As mentioned in
 `Introduction II </Sound_Synthesis/Intro_II/synthesis-algorithms-overwiew-1>`_,
 Max Mathews used additive synthesis to generate the first
@@ -132,7 +134,23 @@ dynamic timbres, as in *Bycicle Built for Two*:
 .. youtube:: 41U78QP8nBk
 	     :width: 600
 
+
 -----
+
+**Iannis Xenakis**
+
+In his Electroacoustic compositions, Iannis Xenakis made use of the UPIC system
+for additive synthesis (Di Scipio, 1998), as for example is Mycenae-Alpha (1977):
+
+.. youtube:: yztoaNakKok
+	     :width: 600
+
+
+
+-----
+
+References
+----------
 
 
 .. publication_list:: bibtex/spectral_intro.bib

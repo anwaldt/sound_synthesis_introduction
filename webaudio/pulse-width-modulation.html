@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="/assets/css/webaudio_style.css">
+</head>
+
+
+<body>
+
+  <button onclick="play()">Play</button>
+  <button onclick="stop()">Stop</button>
+
+  <p>Pitch:
+    <input class="slider"  id="pan" type="range" min="10" max="1000" step="1" value="440" oninput="frequency(this.value);">
+  </p>
+
+  <p>Manual Pulse Width:
+    <input class="slider" id="pan" type="range" min="0" max="1" step="0.001" value="1" oninput="set_pulsewidth(this.value);">
+  </p>
+
+
+  <div class="scope-box">
+
+    Time Domain:
+    <p>
+      <canvas id='scope' width=400 height=200></canvas>
+    </p>
+
+    Frequency Domain:
+    <p>
+      <canvas id='spectrum' width=400 height=200></canvas>
+    </p>
+  </div>
+
+</body>
+
+
+
+
+<script>
+
+
+var audioContext = new window.AudioContext;
+
+
+var pulseWidth   = 0.5;
+
+//  var pWidth   = audioContext.createAudioParam;
+// pWidth.value = 0.5;
+
+var pwmNode      = audioContext.createScriptProcessor(4096, 1, 1);
+console.log(pwmNode.bufferSize);
+pwmNode.onaudioprocess = function(audioProcessingEvent)
+{
+  var inputBuffer  = audioProcessingEvent.inputBuffer;
+  var outputBuffer = audioProcessingEvent.outputBuffer;
+
+  for (var channel = 0; channel < outputBuffer.numberOfChannels; channel++)
+  {
+    var inputData  = inputBuffer.getChannelData(channel);
+    var outputData = outputBuffer.getChannelData(channel);
+
+    for (var sample = 0; sample < inputBuffer.length; sample++)
+    {
+      if((inputData[sample]+1) > pulseWidth *2)
+      outputData[sample] = -1;
+      else
+      outputData[sample] = 1;
+
+    }
+  }
+}
+
+
+var oscillator   = audioContext.createOscillator()
+var gainNode     = audioContext.createGain()
+var pre_gainNode = audioContext.createGain()
+
+
+
+gainNode.gain.value = 0
+
+oscillator.type = 'sawtooth';
+
+oscillator.start(0)
+
+
+var analyser     = audioContext.createAnalyser();
+analyser.fftSize = 2048;
+
+analyser.minDecibels = -120;
+analyser.maxDecibels = 0;
+
+var scopeCtx = document.getElementById('scope').getContext('2d');
+var spectCtx = document.getElementById('spectrum').getContext('2d');
+
+// CONNECT ////////////////////////////////////////////////////////////////////
+
+oscillator.connect(pwmNode);
+pwmNode.connect(gainNode)
+gainNode.connect(audioContext.destination)
+gainNode.connect(analyser);
+
+
+
+
+
+function draw()
+{
+  drawSpectrum(analyser, spectCtx);
+  drawScope(analyser, scopeCtx);
+
+  requestAnimationFrame(draw);
+}
+
+function drawSpectrum(analyser, ctx) {
+  var width = ctx.canvas.width;
+  var height = ctx.canvas.height;
+  var freqData = new Uint8Array(analyser.frequencyBinCount);
+  var scaling = height / 256;
+
+  analyser.getByteFrequencyData(freqData);
+
+  ctx.fillStyle = 'rgba(256, 256, 256, 0.1)';
+  ctx.fillRect(0, 0, width, height);
+
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = 'rgb(0, 0, 0)';
+  ctx.beginPath();
+
+  for (var x = 0; x < width; x++)
+  ctx.lineTo(x, height - freqData[x] * scaling);
+
+  ctx.stroke();
+}
+
+function drawScope(analyser, ctx)
+{
+  var width      = ctx.canvas.width;
+  var height     = ctx.canvas.height;
+  var timeData   = new Uint8Array(analyser.frequencyBinCount);
+  var scaling    = height / 256;
+  var risingEdge = 0;
+  var edgeThreshold = 0.1;
+
+  analyser.getByteTimeDomainData(timeData);
+
+  ctx.fillStyle = 'rgba(256, 256, 256, 0.1)';
+  ctx.fillRect(0, 0, width, height);
+
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = 'rgb(0, 0, 0)';
+  ctx.beginPath();
+
+  // No buffer overrun protection
+  while (timeData[risingEdge++] - 128 > 0 && risingEdge <= width);
+  if (risingEdge >= width) risingEdge = 0;
+
+  while (timeData[risingEdge++] - 128 < edgeThreshold && risingEdge <= width);
+  if (risingEdge >= width) risingEdge = 0;
+
+  for (var x = risingEdge; x < timeData.length && x - risingEdge < width; x++)
+  ctx.lineTo(x - risingEdge, height - timeData[x] * scaling);
+
+  ctx.stroke();
+}
+
+
+
+
+function play()
+{
+  gainNode.gain.value = 1
+}
+
+function stop()
+{
+  gainNode.gain.value = 0
+}
+
+function frequency(y)
+{
+  oscillator.frequency.value = y
+}
+
+function set_pulsewidth(y)
+{
+  pulseWidth = y;
+}
+
+draw();
+</script>
+</html>

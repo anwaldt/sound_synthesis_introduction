@@ -1,11 +1,15 @@
 .. title: Additive & Spectral: Parabolic Interpolation
 .. slug: additive-spectral-parabolic-interpolation
 .. date: 2020-05-06 06:57:18 UTC
-.. tags: 
+.. tags:
 .. category: _sound_synthesis:spectral
-.. link: 
-.. description: 
+.. link:
+.. description:
 .. type: text
 .. has_math: true
+.. priority: 7
 
-.. include:: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/Website/jupyter/quadratic_interpolation.rst
+
+.. raw:: html
+  :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/Jupyter/quadratic_interpolation.html
+ 

@@ -1,12 +1,12 @@
 .. title: Additive & Spectral: Partial Tracking
 .. slug: additive-spectral-partial-tracking
 .. date: 2020-05-05 18:31:44 UTC
-.. tags: 
+.. tags:
 .. category: _sound_synthesis:spectral
-.. link: 
-.. description: 
+.. link:
+.. description:
 .. type: text
-
+.. priority: 6
 
 
 Partial tracking is the process of detecting single
@@ -27,7 +27,7 @@ Monophonic
 - Fundamental Frequency Estimation
   - YIN (de Cheveigné et al, 2002)
   - Swipe (Camacho, 2007)
-  
+
 - Peak Detection
 
   For every STFT frame, local maxima are calculated
@@ -37,18 +37,18 @@ Monophonic
 
 .. figure:: /images/Sound_Synthesis/spectral_analysis/amplitudes.png
 	   :width: 600
-		   
-*Trajectories of partial amplitudes for a violin sound.* 
- 
+
+*Trajectories of partial amplitudes for a violin sound.*
+
 
 .. figure:: /images/Sound_Synthesis/spectral_analysis/frequencies.png
 	   :width: 600
-		   
+
 *Trajectories of partial frequencies for a violin sound.*
 
 
 
 .. figure:: /images/Sound_Synthesis/spectral_analysis/phases.png
 	   :width: 600
-		   
-*Trajectories of unwrapped partial phases for a violin sound.* 
+
+*Trajectories of unwrapped partial phases for a violin sound.*

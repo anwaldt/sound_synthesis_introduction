@@ -1,12 +1,13 @@
 .. title: Additive & Spectral: Spectral Modeling
 .. slug: spectral-modeling
 .. date: 2020-05-04 12:47:28 UTC
-.. tags: 
+.. tags:
 .. category: _sound_synthesis:spectral
-.. link: 
-.. description: 
+.. link:
+.. description:
 .. type: text
 .. has_math: true
+.. priority: 5
 
 McAulay/Quatieri
 ================
@@ -21,7 +22,7 @@ original phases of the partials.
 
 .. figure:: /images/Sound_Synthesis/spectral_modeling/quatieri_system.jpg
 	   :width: 600
-		   
+
 *R. McAulay and T. Quatieri (1986)*
 
 -----
@@ -44,7 +45,7 @@ and a stochasctic component:
 
 .. figure:: /images/Sound_Synthesis/spectral_modeling/quatieri_system.jpg
 	   :width: 600
-		   
+
 *Deterministic + Stochastic model (Serra and Smith, 1990)*
 
 
@@ -62,7 +63,7 @@ to be included are the transients.
 
 .. figure:: /images/Sound_Synthesis/spectral_modeling/sin-trans-noise.png
 	   :width: 600
-		   
+
 *Sines + Transients + Noise (Levine and Smith, 1998)*
 
 
@@ -70,6 +71,3 @@ to be included are the transients.
 
 .. publication_list:: bibtex/synthesis_spectral.bib
 	   :style: unsrt
-
-
-		   

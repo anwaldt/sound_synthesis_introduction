@@ -7,7 +7,7 @@
 .. description:
 .. type: text
 .. has_math: true
-
+.. priority: 10
 
 Our perception is not able to distinguish between different phase relations of an harmonic signal,
 as long as the signal is stationary and the relative phases do not change over time.
