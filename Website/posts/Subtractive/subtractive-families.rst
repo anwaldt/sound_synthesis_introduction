@@ -1,4 +1,4 @@
-.. title: Subtractive: Families
+.. title: Families of Subtractive Synthesis
 .. slug: subtractive-families
 .. date: 2020-05-17 09:39:35 UTC
 .. tags:
@@ -6,54 +6,34 @@
 .. link:
 .. description:
 .. type: text
-.. priority: 0
-
-Subtractive Families
-====================
-
-Based on the same principle, different families of
-subtractive synthesizers can be defined -
-without claim to completeness:
-
-- analog modular
-- analog monophonic
-- analog polyphonic
-- virtual analog / analog modeling
+.. priority: 2
 
 
-These sub-groups of subtractive synthesis have
-different characteristics and are used for different
-applications.
+During the past decades, the subtractive principle has been implemented in many different ways, evolving along with the technology. Although based on the same principle, different families of subtractive synthesizers can be identified, all based on the same basic components. Representatives of these families have different characteristics and are used for different musical applications. Without claim to completeness these families are:
+
+- Analog modular
+- Analog monophonic
+- Analog polyphonic
+- Virtual analog / analog modeling
+
+
 
 -----
 
 Analog Modular
 --------------
 
-The first subtractive synthesizers were
-large, cupboard-like devices and rather expensive.
-Although multiple voices are possible, they
-are designed as monophonic instruments.
-Two well known and opposite examples are the
-first models released by Bob Moog on the US east coast
-and Don Buchla on the west coast.
+The first subtractive synthesizers were large, cupboard-like devices and rather expensive. Although multiple voices are possible, they were designed as monophonic instruments. Two well known and opposite examples are the first models released by Bob Moog on the US east coast and Don Buchla on the west coast. The latter makes use of `distortion techniques </Distortion/distortion-synthesis>`_, whereas the Moog systems used the standard subtractive paradigm.
 
-- Moog Synthesizer (1965)
+Moog Synthesizer (1965)
+~~~~~~~~~~~~~~~~~~~~~~~
+
   - *Switched on Bach*, Wendy Carlos, 1968
 
-    Bob Moog brought the typical VCO-VCA-VCF
-    approach in a rack with a keyboard.
-    It could hence be performed like a
-    typical piano-like instrument.
+    Bob Moog brought the typical VCO-VCA-VCF approach in a rack with a keyboard. It could hence be performed like a typical piano-like instrument. In productions like *Switched on Bach* it was made polyphonic through dubbing with tape recording techniques.
 
-- Buchla 100 (1965)
-  - *Silver Apples of the Moon*, Morton Subotnick, 1967
 
-    Although the Buchla works with slightly different
-    concepts than subtractive synthesis in the Moog
-    synthesizers, it is mentioned in this list.
-
-.. youtube:: 3G1hRNLlYpg
+.. youtube:: bZ2U4i54FiU
 	     :width: 400
 
 -----
@@ -75,11 +55,8 @@ disseminated and used.
  .. figure:: /images/Sound_Synthesis/subtractive/moog1.jpg
      :width: 600
 
- Designed as a fully integrated musical instrument,
- the Minimoog could be used as a virtous tool
- for expressive musical performances.
- Chick Corea's Minimoog solo, starting at 4:20,
- is a prime example:
+ Designed as a fully integrated musical instrument, the Minimoog could be used as a virtuous tool for expressive musical performances.
+ Chick Corea's Minimoog solo, starting at 4:20, is an example of a virtuous performance, making use of modwheel and pitchbend:
 
  .. youtube:: sa21WPH4_U4
 
@@ -88,12 +65,9 @@ disseminated and used.
 **EMS VCS 3 (1969)**
 
 
-  The semi-modular EMS allows access to the
-  signal flow in a patching matrix.
-  It is thus more suited for experimemtal
-  sounds, as used by Pink Floyd in
-  *Welcome to the Machine* for the wobbling
-  machine sounds in the beginning:
+  The semi-modular EMS allows access to the signal flow with a patching matrix.
+  It is thus especially suited for experimental sounds, as used by Pink Floyd in
+  *Welcome to the Machine* for the wobbling  machine sounds in the beginning:
 
   .. youtube:: lt-udg9zQSE
 	       :width: 400
@@ -117,9 +91,7 @@ disseminated and used.
 
 -----
 
-  Due to the quirky filters it failed as a
-  bass accompaniment but gave birth to techno
-  and especially acid:
+  Due to the quirky filters it failed as a bass accompaniment but gave birth to techno and related genres. It creates the typical acid basses and leads:
 
 -----
 
@@ -131,14 +103,8 @@ disseminated and used.
 Analog Polyphonic
 -----------------
 
-After the monophonic analog synths of the 70s,
-which were intended as solo instruments,
-came the polyphonic ones.
-
-Polyphonic analog synthesizers shaped the
-sound of 80s pop (and especially synth-pop)  music with their recognizable
-sound, often used as pads and harmonic foundation
-or for bass lines.
+After the monophonic analog synths of the 70s, which were intended as solo instruments, came the polyphonic ones.
+Polyphonic analog synthesizers shaped the sound of 80s pop (and especially synth-pop)  music with their recognizable sound, often used as pads and harmonic foundation or for bass lines.
 
 -----
 
@@ -148,7 +114,7 @@ or for bass lines.
 
 ----
 
-**Sequential Circuits Prophet-5**
+**Sequential Circuits Prophets-5**
 
 ---
 
@@ -174,7 +140,6 @@ and various synthesizers were released which emulated
 the principles of subtractive synthesis.
 These devices were much cheaper and the digital
 means could provide more voices with better memory options.
-
 Virtual analog synthesizers were the backbone of
 trance development. They lack some of the analog
 warmth but are tighter in sound.

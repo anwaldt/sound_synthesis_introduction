@@ -1,7 +1,7 @@
 :math:`\displaystyle y(t) = \sin(g \frac{\pi}{2} \sin(2 \pi f t))`
 
 :math:`Y[n] = \frac{1}{N} \sum\limits_{i=0}^{N-1} \displaystyle y[n] = \sin(g \ \sin(2 \pi f n)) e^{j2\pi i n/N}`
-      
+
 :math:`Y[n] = \left[ \frac{ e^{j \frac{\sin(2 \pi f i n/N)}{2j} }  -e^{-j \frac{\sin(2 \pi f i n/N)}{2j} } }{2 j}  e^{j2\pi i n/N} \right]`
 
 :math:`Y[n] = \frac{1}{2j} \left[  e^{j \frac{\sin(2 \pi f i n/N)}{2j} }  -e^{-j \frac{\sin(2 \pi f i n/N)}{2j} }   e^{j2\pi i n/N} \right]`

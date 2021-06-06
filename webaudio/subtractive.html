@@ -8,14 +8,21 @@
 
 <body>
 
-
-
   <p>Pitch (VCF):
-    <input type="range" min="1" max="5000"   class="slider" value="100" step="0.01"  oninput="pitch(this.value)">
+    <input type="range" min="10" max="1000"   class="slider" value="100" step="0.01"  oninput="pitch(this.value)">
+  </p>
+
+  <p>Filter Type:
+    <form>
+      <input type="radio" name="filter-type" value="lowpass" onclick="filter_type('lowpass')"> Lowpass
+      <input type="radio" name="filter-type" value="highpass" onclick="filter_type(this.value)"> Highpass
+      <input type="radio" name="filter-type" value="bandpass" onclick="filter_type(this.value)"> Bandpass
+      <input type="radio" name="filter-type" value="notch" onclick="filter_type(this.value)"> Notch (Band Reject)
+    </form>
   </p>
 
   <p>Cutoff (VFC):
-    <input type="range" min="1" max="20000" class="slider" value="100" step="0.01"  oninput="cutoff(this.value)">
+    <input type="range" min="1" max="10000" class="slider" value="100" step="0.01"  oninput="cutoff(this.value)">
   </p>
 
   <p>Q (VCF):
@@ -26,7 +33,8 @@
     <input type="range" min="0" max="1" value="1" class="slider"  step="0.01"  oninput="set_gain(this.value)">
   </p>
 
-  <div style="border:1px solid #808080;border-radius:30px;background-color:#808080;padding:1.2em; margin:0 auto;">
+  <div class="scope-box">
+
     Time Domain:
     <p>
       <canvas id='scope' width=400 height=200></canvas>
@@ -36,7 +44,9 @@
     <p>
       <canvas id='spectrum' width=400 height=200></canvas>
     </p>
+
   </div>
+
 
 </body>
 
@@ -140,6 +150,11 @@ function drawScope(analyser, ctx) {
 function pitch(y)
 {
   oscillator.frequency.setValueAtTime(y, context.currentTime);
+}
+
+function filter_type(type)
+{
+  filterNode.type = type;
 }
 
 function cutoff(y)
