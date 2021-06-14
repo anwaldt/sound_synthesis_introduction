@@ -11,37 +11,24 @@ First Compositions & Musique Concrète
 -------------------------------------
 
 Halim El-Dabh was probably the first person to compose musical works with previously recorded material. His tape piece *The Expression of Zaar* dates back to 1944 and was realized in Cairo, Egypt.
-Only slightly later, after World War II, Pierre Schaeffer
-started his experiments with turntables.
-He recorded environmental sounds and musical instruments,
-arranged them, altered the playback
+Only slightly later, after World War II, Pierre Schaeffer started his experiments with turntables.
+He recorded environmental sounds and musical instruments, arranged them, altered the playback
 speed and used loops in what then became *musique concrète*.
-These techniques are well-known nowadays, but were
-a completely novel experience in th 1940s.
+These techniques are well-known nowadays, but were a completely novel experience in th 1940s.
 
-Although an engineer by profession, Pierre Schaeffer did
-not only explore the technical means for composing with
-recorded sound. With the theory of the *objet sonore* he
-also lay the foundation for a theoretical and aesthetical discourse
-of acousmatic music (Schaeffer, 2012).
+Although an engineer by profession, Pierre Schaeffer did not only explore the technical means for composing with recorded sound. With the theory of the *objet sonore* he also lay the foundation for the theory of acousmatic music (Schaeffer, 2012).
 
 -----
 
-The *Cinq Études de bruits* (1948), the first published
-works of *musique concrète*, use various sources and
-techniques.
+The *Cinq Études de bruits* (1948), the first published works of *musique concrète*, use various sources and techniques.
 
 .. youtube:: CTf0yE15zzI
 	     :width: 500
 
 -----
 
-After the first experiments, Schaeffer started
-to involve musicians for taking the concept to the next level.
-With Pierre Henry he relized the *Symphonie pour un homme seul*
-in 1950.
-This acousmatic composition made use of various
-additional techniques, including spatial aspects.
+After the first experiments, Schaeffer started to involve musicians for taking the concept to the next level. With Pierre Henry he realized the *Symphonie pour un homme seul*
+in 1950. This acousmatic composition made use of various additional techniques, including spatial aspects.
 
 -----
 
@@ -70,18 +57,37 @@ material are the *The Beach Boys* and *Pink Floyd*.
 Digital Sampling
 ----------------
 
-Early devices capable of digital sampling are
-the *Fairlight CMI* (1979) and the *Synclavier II* (1980).
-These expensive, bulky devices were already used
-in various productions.
+Early devices capable of digital sampling are the *Fairlight CMI* (1979) and the *Synclavier II* (1980).
+These expensive, bulky *workstations* were already used in various productions.
+
+.. youtube:: kzaNrAeJzdM
+	     :width: 500
+
+
+-----
+
 
 **Linn Drum**
 
-The *Linn Drum* (1982) represents a breakthrough for digital sampling.
-Using 8 bit technique, it offers a set of drum sounds,
-which can be found in many 1980s pop productions.
+The *Linn Drum* (1982) represents a milestone in digital sampling. Using 8 bit technique, it offers a fixed set of drum samples with a very recognisable sound. It can be found in most 1980s pop productions in the charts.
 
 
+.. youtube:: djV11Xbc914
+	     :width: 500
+
+
+.. youtube:: 7S8vbkTOWnQ
+	     :width: 500
+
+
+-----
+
+**Akai MPC60 & E-mu SP-1200**
+
+These were the first affordable devices which allowed the use of custom samples. They are essential instruments for the development of Rap music. The workflow of these Desktop devices allowed the sampling of vinyl for a use in new rhythmic structures. Albums like *It Takes a Nation of Millions to Hold Us Back* (1988) by Public Enemy rely on this technique as the main sound source (Evans, 2010).
+
+.. youtube:: RCPSrHBNRIg
+	     :width: 500
 
 
 -----

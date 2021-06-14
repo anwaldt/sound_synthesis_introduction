@@ -49,13 +49,12 @@ disseminated and used.
 
 **Minimoog Model D (1970)**
 
- The idea of monophonic analog subtractive synthesis is
- usually linked to the Minimoog.
+ The idea of monophonic analog subtractive synthesis - and maybe of the synthesizer in general -  is usually associated with the Minimoog.
 
  .. figure:: /images/Sound_Synthesis/subtractive/moog1.jpg
      :width: 600
 
- Designed as a fully integrated musical instrument, the Minimoog could be used as a virtuous tool for expressive musical performances.
+ Designed as a fully integrated musical instrument, the Minimoog could be used in virtuous expressive musical performances, was portable and affordable.
  Chick Corea's Minimoog solo, starting at 4:20, is an example of a virtuous performance, making use of modwheel and pitchbend:
 
  .. youtube:: sa21WPH4_U4

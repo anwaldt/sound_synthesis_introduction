@@ -1,13 +1,13 @@
 .. title: Granular: Introduction
 .. slug: granular-introduction
 .. date: 2020-06-02 11:00:21 UTC
-.. tags: 
+.. tags:
 .. category: _sound_synthesis:granular
-.. link: 
-.. description: 
+.. link:
+.. description:
 .. type: text
 
-Granular synthesis is a special  form 
+Granular synthesis is a special  form
 of sample based synthesis, making use
 of micro sections of audio material,
 called grains, sometimes particles or atoms.
@@ -33,7 +33,7 @@ elementary signal (Gabor, 1946) for musical applications.
 
 .. youtube:: XsOyxFybxPY
  :width: 400
-	
+
 
 Early Digital
 -------------
@@ -70,7 +70,7 @@ In 2018, the TU Studio performed the piece
 with flutist Erik Drescher and made a binaural recording:
 
 |scir|
-	 
+
 -----
 
 References
@@ -79,7 +79,7 @@ References
 .. publication_list:: bibtex/granular.bib
 	   :style: unsrt
 
-		  
+
 
 .. |scir| raw:: html
 
