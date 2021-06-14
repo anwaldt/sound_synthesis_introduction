@@ -1,16 +1,16 @@
-#N canvas 867 395 1169 882 10;
+#N canvas 1744 676 644 480 10;
 #X obj 108 216 lop~;
 #X obj 211 215 hip~;
 #X obj 331 215 bp~, f 6;
 #X obj 214 28 hsl 128 15 10 1000 0 0 empty empty empty -2 -8 0 10 -204786
--1 -1 500 1;
+-1 -1 0 1;
 #X floatatom 211 52 5 0 0 0 - - -, f 5;
 #X obj 108 356 *~;
 #X obj 211 355 *~;
 #X obj 331 355 *~;
 #X obj 211 418 dac~ 1;
 #X obj 326 124 hsl 128 15 10 10000 0 0 empty empty empty -2 -8 0 10
--204800 -1 -1 400 1;
+-204800 -1 -1 0 1;
 #X obj 123 292 select 0;
 #X obj 226 291 select 1;
 #X obj 347 291 select 2;
@@ -29,7 +29,11 @@
 #X floatatom 323 141 5 0 0 0 - - -, f 5;
 #X text 321 104 Filter Cutoff/Center;
 #X text 439 202 Filter Characteristic;
-#N canvas 498 393 1064 930 bandlimited 1;
+#X msg 364 191 5;
+#X text 362 174 Quality;
+#X text 10 18 Use different non-resonant filters with a band-limited
+saw tooth., f 26;
+#N canvas 498 382 1064 930 band-lim-saw 0;
 #X obj 71 133 *~ 0.064;
 #X obj 71 156 rpole~ 0.93538;
 #X obj 71 179 *~ 0.00431;
@@ -56,16 +60,12 @@
 #X connect 8 0 10 0;
 #X connect 9 0 0 0;
 #X connect 11 0 9 0;
-#X restore 211 97 pd bandlimited;
-#X msg 364 191 5;
-#X text 362 174 Quality;
-#X text 5 5 Use different non-resonant filters with a band-limited
-saw tooth.;
+#X restore 211 97 pd band-lim-saw;
 #X connect 0 0 5 0;
 #X connect 1 0 6 0;
 #X connect 2 0 7 0;
 #X connect 3 0 4 0;
-#X connect 4 0 27 0;
+#X connect 4 0 30 0;
 #X connect 5 0 8 0;
 #X connect 6 0 8 0;
 #X connect 7 0 8 0;
@@ -88,7 +88,7 @@ saw tooth.;
 #X connect 24 0 2 1;
 #X connect 24 0 1 1;
 #X connect 24 0 0 1;
-#X connect 27 0 0 0;
-#X connect 27 0 1 0;
-#X connect 27 0 2 0;
-#X connect 28 0 2 2;
+#X connect 27 0 2 2;
+#X connect 30 0 0 0;
+#X connect 30 0 1 0;
+#X connect 30 0 2 0;
