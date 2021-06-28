@@ -11,5 +11,4 @@
 
 
 .. raw:: html
-  :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/Jupyter/quadratic_interpolation.html
- 
+  :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/Website/jupyter/quadratic_interpolation.html

@@ -41,10 +41,35 @@ Resonant Lowpass Filters
 
 Additional filters can be installed with Deken.
 Filters and the relevant extensions can be found in the `list of external filters <http://write.flossmanuals.net/pure-data/audio-filters/>`_ .
-The ``iemlib``, for example,  features many useful resonant filters.
+The ``iemlib``, for example,  features many useful resonant filters. One is the 8th order resonant lowpass ``vcf_lp8~``.
 The ``moog~`` filter object from the ``flatspace ggee`` library is another good sounding implementation,
 trying to emulate the Moog Ladder sound.
+The example `resonant-lowpass.pd <https://github.com/anwaldt/sound_synthesis_introduction/blob/main/PD/resonant-lowpass.pd>`_
+compares the sound of these filters with a square wave input.
+For both implementations, all parameters are controlled with audio rate signals.
+The slider values are thus converted to signals with the ``line~`` object,
+which is basically a linear interpolation.
 
-
-.. figure:: /images/Sound_Synthesis/subtractive/resonant-filters.png
+.. figure:: /images/Sound_Synthesis/subtractive/pd-resonant-lowpass.png
     :width: 600
+
+
+------
+
+Exercises
+=========
+
+
+.. admonition:: Exercise I
+
+		Control the parameters of the resonant lowpass example with temporal envelopes.
+
+
+.. admonition:: Exercise II
+
+		Trigger the envelope with a metronome sequencer.
+
+
+.. admonition:: Exercise III
+
+		Create a square wave from the sawtooth and use it as input signal (http://write.flossmanuals.net/pure-data/square-waves/).

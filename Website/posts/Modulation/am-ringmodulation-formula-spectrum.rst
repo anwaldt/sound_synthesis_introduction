@@ -12,4 +12,4 @@
 
 
 .. raw:: html
-    :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/Jupyter/am_ringmod.html
+    :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/Website/jupyter/am_ringmod.html
