@@ -12,4 +12,4 @@
 The following example calculates the spectrum of a sinusoidal function, folded with a sinusoidal transfer function:
 
 .. raw:: html
-   :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/webaudio/wavefolder.html
+   :file: ../Sound_Synthesis_Introduction/webaudio/wavefolder.html

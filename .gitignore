@@ -1,3 +1,4 @@
 *.rst~
+Website/jupyter/*html
 Jupyter/*.html
 Jupyter/.ipynb_checkpoints/

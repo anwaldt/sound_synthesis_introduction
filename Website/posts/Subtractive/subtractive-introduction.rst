@@ -31,7 +31,9 @@ principle can be explained with three groups of functional units:
 -----
 
 .. figure:: /images/Sound_Synthesis/subtractive/subtractive-figure0.png
-    :width: 600
+    :figwidth: 100%
+    :width: 70%
+    :align: center
 
 .. [Fig.1] Functional units in subtractive synthesis.
 
@@ -82,6 +84,8 @@ Like with all methods for sound synthesis, the dynamic change of timbre is an es
 -----
 
 .. figure:: /images/Sound_Synthesis/subtractive/subtractive-figure1.png
-    :width: 600
+    :figwidth: 100%
+    :width: 70%
+    :align: center
 
 .. [Fig.2] Subtractive patch for bass and lead synth.

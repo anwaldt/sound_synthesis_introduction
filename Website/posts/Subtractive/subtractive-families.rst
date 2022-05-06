@@ -30,11 +30,15 @@ Moog Synthesizer (1965)
 
   - *Switched on Bach*, Wendy Carlos, 1968
 
-    Bob Moog brought the typical VCO-VCA-VCF approach in a rack with a keyboard. It could hence be performed like a typical piano-like instrument. In productions like *Switched on Bach* it was made polyphonic through dubbing with tape recording techniques.
+    Bob Moog brought the typical VCO-VCA-VCF approach in a rack with a keyboard.
+    It could hence be performed like a typical piano-like instrument.
+    In productions like *Switched on Bach* it was made polyphonic through dubbing with tape recording techniques.
+    This video shows the artist, *Wendy Carlos*, in an interview (since the LP is not available there):
 
+.. youtube:: 4SBDH5uhs4Q
+    :width: 50%
+    :align: center
 
-.. youtube:: bZ2U4i54FiU
-	     :width: 400
 
 -----
 
@@ -49,53 +53,65 @@ disseminated and used.
 
 **Minimoog Model D (1970)**
 
- The idea of monophonic analog subtractive synthesis - and maybe of the synthesizer in general -  is usually associated with the Minimoog.
+ The idea of monophonic analog subtractive synthesis - and maybe of the synthesizer in general -
+ is usually associated with the Minimoog.
 
- .. figure:: /images/Sound_Synthesis/subtractive/moog1.jpg
-     :width: 600
 
- Designed as a fully integrated musical instrument, the Minimoog could be used in virtuous expressive musical performances, was portable and affordable.
- Chick Corea's Minimoog solo, starting at 4:20, is an example of a virtuous performance, making use of modwheel and pitchbend:
+.. figure:: /images/Sound_Synthesis/subtractive/moog1.jpg
+    :figwidth: 100%
+    :width: 50%
+    :align: center
 
- .. youtube:: sa21WPH4_U4
+
+Designed as a fully integrated musical instrument, the Minimoog could be used
+in virtuous expressive musical performances, was portable and affordable.
+Chick Corea's Minimoog solo, starting at 4:20, is an example of a virtuous performance, making use of modwheel and pitchbend:
+
+.. youtube:: sa21WPH4_U4
+   :width: 50%
+   :align: center
+
 
 -----
 
 **EMS VCS 3 (1969)**
 
 
-  The semi-modular EMS allows access to the signal flow with a patching matrix.
-  It is thus especially suited for experimental sounds, as used by Pink Floyd in
-  *Welcome to the Machine* for the wobbling  machine sounds in the beginning:
+The semi-modular EMS allows access to the signal flow with a patching matrix.
+It is thus especially suited for experimental sounds, as used by Pink Floyd in
+*Welcome to the Machine* for the wobbling  machine sounds in the beginning:
 
-  .. youtube:: lt-udg9zQSE
-	       :width: 400
+.. youtube:: lt-udg9zQSE
+  :width: 50%
+  :align: center
 
 -----
 
 **Roland TB 303 (1982)**
 
-  Although released several years later - and for
-  a different application - the TB303 fits
-  best into this family.
-  The TB 303 was intended to be used as an
-  accompanying instrument for musicians.
-  It has a different interface, a programmable
-  step sequencer.
+Although released several years later - and for
+a different application - the TB303 fits
+best into this family.
+The TB 303 was intended to be used as an
+accompanying instrument for musicians.
+It has a different interface, a programmable
+step sequencer.
 
 -----
 
-  .. figure:: /images/Sound_Synthesis/subtractive/tb303big.jpg
-    :width: 600
+.. figure:: /images/Sound_Synthesis/subtractive/tb303big.jpg
+  :figwidth: 100%
+  :width: 50%
+  :align: center
 
------
 
-  Due to the quirky filters it failed as a bass accompaniment but gave birth to techno and related genres. It creates the typical acid basses and leads:
+Due to the quirky filters it failed as a bass accompaniment but gave birth to techno and related genres.
+It creates the typical acid basses and leads:
 
------
 
-  .. youtube:: loLocHuYqLs
-    :width: 400
+.. youtube:: loLocHuYqLs
+  :width: 50%
+  :align: center
 
 -----
 
@@ -103,31 +119,29 @@ Analog Polyphonic
 -----------------
 
 After the monophonic analog synths of the 70s, which were intended as solo instruments, came the polyphonic ones.
-Polyphonic analog synthesizers shaped the sound of 80s pop (and especially synth-pop)  music with their recognizable sound, often used as pads and harmonic foundation or for bass lines.
+Polyphonic analog synthesizers shaped the sound of 80s pop (and especially synth-pop)
+music with their recognizable sound, often used as pads and harmonic foundation or for bass lines.
 
 -----
 
 **Yamaha CS-80 (1977)**
 
-  .. youtube:: AbWNZkoQHuE
+.. youtube:: AbWNZkoQHuE
+  :width: 50%
+  :align: center
 
 ----
 
-**Sequential Circuits Prophets-5**
-
----
 
 **Oberheim OBx (1979)**
 
 -----
 
-  .. youtube:: SwYN7mTi6HM
+.. youtube:: SwYN7mTi6HM
+  :width: 50%
+  :align: center
 
------
 
-**Roland Jupiter-8**
-
- - 1981
 
 -----
 
@@ -140,16 +154,12 @@ the principles of subtractive synthesis.
 These devices were much cheaper and the digital
 means could provide more voices with better memory options.
 Virtual analog synthesizers were the backbone of
-trance development. They lack some of the analog
-warmth but are tighter in sound.
+trance development. They lack some of the analog warmth but are tighter in sound. Some examples:
 
------
 
 **Clavia Nord Lead**
 
  - 1995
-
------
 
 **Roland JP-8000**
 
@@ -157,13 +167,10 @@ warmth but are tighter in sound.
 
    *The Supersaw*
 
------
 
 **Access Virus**
 
  - 1997
-
------
 
 **Yamaha AN1x**
 

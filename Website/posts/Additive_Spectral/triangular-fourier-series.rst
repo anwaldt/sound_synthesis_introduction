@@ -26,4 +26,4 @@ Interactive Example
 -------------------
 
 .. raw:: html
-  :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/webaudio/additive_triangular.html
+  :file: ../Sound_Synthesis_Introduction/webaudio/additive_triangular.html

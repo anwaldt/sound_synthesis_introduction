@@ -12,4 +12,4 @@
 The following example shows both AM and ring modulation:
 
 .. raw:: html
-    :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/webaudio/am_ringmod.html
+    :file: ../Sound_Synthesis_Introduction/webaudio/am_ringmod.html

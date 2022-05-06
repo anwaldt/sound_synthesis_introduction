@@ -1,5 +1,5 @@
 #N canvas 669 199 1001 1138 10;
-#X floatatom 335 170 7 0.01 1000 0 - - -, f 7;
+#X floatatom 335 170 7 0.01 1000 0 - - -;
 #X obj 199 213 line~;
 #X obj 335 214 line~;
 #X obj 199 189 pack 0 30;
@@ -33,16 +33,16 @@
 #X connect 11 0 9 0;
 #X restore 43 194 pd band-lim-saw;
 #X obj 200 30 vsl 15 128 10 10000 0 0 empty empty empty 0 -9 0 10 -204800
--1 -1 1319 1;
+-1 -1 0 1;
 #X obj 43 28 vsl 15 128 1 1000 0 0 empty empty empty 0 -9 0 10 -204786
--1 -1 750 1;
+-1 -1 0 1;
 #X obj 273 310 moog~, f 8;
 #X obj 335 31 vsl 15 128 0 4 0 0 empty empty empty 0 -9 0 10 -262130
--1 -1 4300 1;
+-1 -1 0 1;
 #X obj 405 291 vradio 15 1 0 2 empty empty empty 0 -8 0 10 -203904
 -1 -1 0;
-#X floatatom 43 164 5 0 0 0 - - -, f 5;
-#X floatatom 200 166 5 0 0 0 - - -, f 5;
+#X floatatom 43 164 5 0 0 0 - - -;
+#X floatatom 200 166 5 0 0 0 - - -;
 #X obj 65 429 *~;
 #X obj 80 365 select 0;
 #X msg 80 384 1;

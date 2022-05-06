@@ -10,8 +10,12 @@
 .. priority: 1
 
 
-When starting with subtractive synthesis, filters are the first thing to look for.
-PD offers a couple of builtin filters but additional externals come with nice sounding
+Filters are an essential, sound-defining component within subtractive synthesis.
+Especially in analog hardware, filters of specific instruments, like the TB 303 or the Minimoog,
+make the individual - almost legendary - sound qualities.
+It thus makes sense to look for different filter implementations in software, since they can
+improve the overall sound a lot.
+PD offers a couple of builtin filters but additional externals come with more elaborate
 implementations.
 
 -----
@@ -32,18 +36,21 @@ from the repository, different characteristics of the one-pole filters can be co
 Filter cutoff and quality are controlled with control rate signals:
 
 .. figure:: /images/Sound_Synthesis/subtractive/pd-one-pole-filters.png
-    :width: 600
+    :width: 600px
+    :figwidth: 100%
+    :align: center
+
 
 -----
 
 Resonant Lowpass Filters
 ========================
 
-Additional filters can be installed with Deken.
+Additional filters can be implemented or installed with Deken.
 Filters and the relevant extensions can be found in the `list of external filters <http://write.flossmanuals.net/pure-data/audio-filters/>`_ .
 The ``iemlib``, for example,  features many useful resonant filters. One is the 8th order resonant lowpass ``vcf_lp8~``.
 The ``moog~`` filter object from the ``flatspace ggee`` library is another good sounding implementation,
-trying to emulate the Moog Ladder sound.
+trying to emulate the famous Moog Ladder sound.
 The example `resonant-lowpass.pd <https://github.com/anwaldt/sound_synthesis_introduction/blob/main/PD/resonant-lowpass.pd>`_
 compares the sound of these filters with a square wave input.
 For both implementations, all parameters are controlled with audio rate signals.
@@ -51,7 +58,9 @@ The slider values are thus converted to signals with the ``line~`` object,
 which is basically a linear interpolation.
 
 .. figure:: /images/Sound_Synthesis/subtractive/pd-resonant-lowpass.png
-    :width: 600
+    :width: 600px
+    :figwidth: 100%
+    :align: center
 
 
 ------
@@ -62,7 +71,7 @@ Exercises
 
 .. admonition:: Exercise I
 
-		Control the parameters of the resonant lowpass example with temporal envelopes.
+		Control the parameters of the resonant lowpass example with temporal envelopes (ADSR). Use one ADSR for the signal amplitude and one for the cutoff frequency. If the ADSR for the cutoff has a faster decay-release than the one for the amplitude, the sound fill have a sharp onset and a damped release.
 
 
 .. admonition:: Exercise II

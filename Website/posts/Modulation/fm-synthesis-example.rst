@@ -13,4 +13,4 @@ The following example is a minimal FM synthesis with two operators -
 one modulator and one carrier:
 
 .. raw:: html
-   :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/webaudio/fm_synthesis.html
+   :file: ../Sound_Synthesis_Introduction/webaudio/fm_synthesis.html

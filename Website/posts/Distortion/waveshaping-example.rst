@@ -13,4 +13,4 @@
 The following interactive example offers control over the pre-gain to add overtones to the sinusoidal source signal:
 
 .. raw:: html
-   :file: /media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/webaudio/waveshaper.html
+   :file: ../Sound_Synthesis_Introduction/webaudio/waveshaper.html
