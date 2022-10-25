@@ -5,8 +5,12 @@
   <link rel="stylesheet" href="/assets/css/webaudio_style.css">
 </head>
 
+<center>
 
 <body>
+  <p>
+  <button style="background-color: #1E90FF" onclick="startAudio()">Start Audio</button>
+  </p>
 
   <button onclick="play()">Play</button>
   <button onclick="stop()">Stop</button>
@@ -35,7 +39,7 @@
 
 </body>
 
-
+</center>
 
 
 <script>
@@ -78,6 +82,10 @@ var scopeCtx = document.getElementById('scope').getContext('2d');
 var spectCtx = document.getElementById('spectrum').getContext('2d');
 
 
+function startAudio()
+{
+  audioContext.resume()
+}
 
 function draw()
 {

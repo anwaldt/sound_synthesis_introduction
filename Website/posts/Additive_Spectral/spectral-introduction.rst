@@ -10,7 +10,6 @@
 .. priority: 1
 
 
-
 The sine wave can be considered the atomic unit of timbre and thus of musical sounds.
 Additive synthesis and related approaches build musical sounds from scratch, using these integral components. When a sound is composed of several sinusoids, they are referred to as *partials*, regardless of their properties. Partials which are integer multiples of a fundamental frequency are called *harmonics* or *overtones*, when related to the first harmonic.
 
@@ -25,7 +24,9 @@ According to the Fourier theorem, any periodic signal can be represented by an i
 -  frequency :math:`f_i`
 -  phase :math:`\varphi_i`
 
-:math:`\displaystyle y = \sum\limits_{i=1}^{\infty} a_i \ sin(2 \pi f_i \ t +\varphi_i )`
+.. math::
+
+	\displaystyle y = \sum\limits_{i=1}^{\infty} a_i \ sin(2 \pi f_i \ t +\varphi_i )
 
 
 When applying this principle to musical sounds,
@@ -36,7 +37,9 @@ with a maximum number of partials :math:`N_{part}`.
 In an even further reduced model, the phases of the partials
 can be ignored:
 
-:math:`\displaystyle y (t) = \sum\limits_{n=1}^{N_{part}} a_n(t) \ sin(2 \ \pi \ n \ f_0 (t)  \ t)`
+.. math::
+
+	\displaystyle y (t) = \sum\limits_{n=1}^{N_{part}} a_n(t) \ sin(2 \ \pi \ n \ f_0 (t)  \ t)
 
 
 
@@ -67,13 +70,15 @@ He built mechanical devices, based on tuning forks,
 resonant tubes and electromagnetic excitation
 for additive synthesis.
 Von Helmholtz used these devices for investigating various
-aspects of harmonic sounds, including spectral distribution and
+ipects of harmonic sounds, including spectral distribution and
 relative phases.
 
 .. figure:: /images/Sound_Synthesis/helmholtz_fork.jpg
-	       :width: 600
+	:width: 60%
+	:figwidth: 100%
+	:align: center
 
-	       *Tuning forks with resonant tubes (von Helmholtz, 1870, p.183).*
+	*Tuning forks with resonant tubes (von Helmholtz, 1870, p.183).*
 
 
 -----
@@ -95,7 +100,7 @@ oscillators, tuned to the desired frequency and recorded on tape.
 music on a timbral level  in a rigid score.
 Stockhausen therefor generated tables with frequencies
 and mixed tones for creating source material.
-[Fig.1]_ shows an excerpt from the timeline,
+Fig.1 shows an excerpt from the timeline,
 which was used to arrange the material.
 The timbres are recognizable through their
 vertical position in the upper system, whereas
@@ -105,12 +110,16 @@ respectively fades and amplitudes.
 
 
 .. figure:: /images/Sound_Synthesis/studie4.jpg
-	    :width: 600
-.. [Fig.1] *From the score of Studie II.*
+	:width: 60%
+	:figwidth: 100%
+	:align: center
+
+	Fig.1: *From the score of Studie II.*
 
 
 .. youtube:: Yc_FfWnttGw
-	     :width: 600
+	:width: 600px
+	:align: center
 
 
 -----
@@ -123,8 +132,7 @@ Early Digital
 
 **Max Mathews**
 
-As mentioned in
-`Introduction II </Sound_Synthesis/Intro_II/synthesis-algorithms-overwiew-1>`_,
+As mentioned in the `Introduction </sound_synthesis_introduction/Intro/synthesis-algorithms-overwiew-1>`_,
 Max Mathews used additive synthesis to generate the first
 digitally synthesized pieces of music in the 1950s.
 In the early 1960s, Mathews had advanced the method to synthesize
@@ -132,7 +140,8 @@ dynamic timbres, as in *Bycicle Built for Two*:
 
 
 .. youtube:: 41U78QP8nBk
-	     :width: 600
+	:width: 600px
+	:align: center
 
 
 -----
@@ -143,8 +152,8 @@ In his Electroacoustic compositions, Iannis Xenakis made use of the UPIC system
 for additive synthesis (Di Scipio, 1998), as for example is Mycenae-Alpha (1977):
 
 .. youtube:: yztoaNakKok
-	     :width: 600
-
+	:width: 600px
+	:align: center
 
 
 -----

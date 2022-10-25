@@ -1,6 +1,11 @@
 <!doctype html>
 <html>
 
+<center>
+
+
+<button style="background-color: #1E90FF" onclick="startAudio()">Start Audio</button>
+
 
 <p>
   Carrier Frequency
@@ -18,7 +23,7 @@
 </p>
 
 <p><p>Output Gain: <span id="gain_text"></span></p>
-<input type="range" min="0" max="1" value="0" class="slider"   step="0.01"  oninput="set_gain(this.value)">
+<input type="range" min="0" max="1" value="0.2" class="slider"   step="0.01"  oninput="set_gain(this.value)">
 </p>
 
 <div class="scope-box">
@@ -34,6 +39,8 @@
   </p>
 </div>
 </body>
+
+</center>
 
 
 
@@ -76,12 +83,16 @@ gainNode.connect(outgain)
 
 outgain.connect(audioContext.destination)
 outgain.connect(analyser)
-outgain.gain.value = 0
+outgain.gain.value = 0.2
 
 
 draw()
 drawOscilloscope()
 
+function startAudio()
+{
+  audioContext.resume()
+}
 
 function frequency(y)
 {

@@ -2,11 +2,15 @@
 
 <html>
 
+<center>
+
 <head>
   <link rel="stylesheet" href="/media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/webaudio/webaudio_style.css">
 </head>
 
 <body>
+
+  <button style="background-color: #1E90FF" onclick="startAudio()">Start Audio</button>
 
   <p><p>Pitch (Hz): <span id="oscillatorA_text"></span></p>
   <input type="range" min="1" max="1000" value="440" class="slider"   step="0.01"  oninput="set_osc_freq(this.value)">
@@ -18,7 +22,7 @@
 
 
 <p><p>Output Gain: <span id="gain_text"></span></p>
-<input type="range" min="0" max="1" value="0" class="slider"   step="0.01"  oninput="set_gain(this.value)">
+<input type="range" min="0" max="1" value="0.2" class="slider"   step="0.01"  oninput="set_gain(this.value)">
 </p>
 
 <div class="scope-box">
@@ -37,7 +41,7 @@
 
 </body>
 
-
+</center>
 
 <script type="text/javascript">
 
@@ -86,6 +90,15 @@ var scopeCtx = document.getElementById('scope').getContext('2d');
 var spectCtx = document.getElementById('spectrum').getContext('2d');
 
 draw();
+
+function startAudio()
+{
+  set_osc_freq(440)
+  set_max_harmonics(1)
+  set_gain(0.2)
+
+  context.resume()
+}
 
 function draw()
 {

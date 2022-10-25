@@ -5,8 +5,11 @@
   <link rel="stylesheet" href="/assets/css/webaudio_style.css">
 </head>
 
+<center>
 
 <body>
+
+  <button style="background-color: #1E90FF" onclick="startAudio()">Start Audio</button>
 
   <button onclick="play()">Play</button>
   <button onclick="stop()">Stop</button>
@@ -36,6 +39,7 @@
 </body>
 
 
+</center>
 
 
 <script>
@@ -104,6 +108,10 @@ gainNode.connect(analyser);
 
 
 
+function startAudio()
+{
+  audioContext.resume()
+}
 
 
 function draw()

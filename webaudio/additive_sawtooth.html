@@ -10,7 +10,10 @@
 
 <body>
 
-  <p><p>Pitch (Hz): <span id="oscillatorA_text"></span></p>
+<button style="background-color: #1E90FF" onclick="startAudio()">Start Audio</button>
+
+
+<p><p>Pitch (Hz): <span id="pitch_slider"></span></p>
   <input type="range" min="1" max="1000" value="440" class="slider"   step="0.01"  oninput="set_osc_freq(this.value)">
 </p>
 
@@ -20,7 +23,7 @@
 
 
 <p><p>Output Gain: <span id="gain_text"></span></p>
-<input type="range" min="0" max="1" value="0" class="slider"   step="0.01"  oninput="set_gain(this.value)">
+<input type="range" min="0" max="1" value="0.2" class="slider"   step="0.01"  oninput="set_gain(this.value)">
 </p>
 
 <div class="scope-box">
@@ -43,7 +46,7 @@
 
 <script type="text/javascript">
 
-var context     = new AudioContext();
+const context     = new AudioContext();
 
 var analyser    = context.createAnalyser();
 var outgain     = context.createGain();
@@ -55,7 +58,7 @@ for(let i = 0; i < 20; i++)
 {
 
   const osc           = context.createOscillator();
-  osc.frequency.value = 110 * 2 ** i;
+  osc.frequency.value = 440 * 2 * i;
   osc.type            = 'sine';
   osc.start();
 
@@ -89,6 +92,15 @@ var spectCtx = document.getElementById('spectrum').getContext('2d');
 
 draw();
 
+function startAudio()
+{
+  set_osc_freq(440)
+  set_max_harmonics(1)
+  set_gain(0.2)
+
+  context.resume()
+}
+
 function draw()
 {
   drawSpectrum(analyser, spectCtx);
@@ -119,11 +131,11 @@ function drawSpectrum(analyser, ctx)
 }
 
 function drawScope(analyser, ctx) {
-  var width    = ctx.canvas.width;
-  var height     = ctx.canvas.height;
-  var timeData   = new Uint8Array(analyser.frequencyBinCount);
-  var scaling    = height / 256;
-  var risingEdge = 0;
+  var width         = ctx.canvas.width;
+  var height        = ctx.canvas.height;
+  var timeData      = new Uint8Array(analyser.frequencyBinCount);
+  var scaling       = height / 256;
+  var risingEdge    = 0;
   var edgeThreshold = 0.1;
 
   analyser.getByteTimeDomainData(timeData);
@@ -155,7 +167,7 @@ function set_osc_freq(y)
   {
     let f = y*(i+1);
     oscillators[i].frequency.setValueAtTime(f, context.currentTime);
-    var output = document.getElementById('oscillatorA_text');
+    var output = document.getElementById('pitch_slider');
       output.innerHTML = y;
   }
 }
@@ -163,8 +175,6 @@ function set_osc_freq(y)
 
 function set_max_harmonics(y)
 {
-
-
   for(let i = 0; i < 20; i++)
   {
 
@@ -191,6 +201,7 @@ function set_gain(y)
 {
   outgain.gain.value = y
 }
+
 
 
 </script>

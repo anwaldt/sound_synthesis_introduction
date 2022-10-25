@@ -1,4 +1,4 @@
-.. title: Additive Synhesis in SuperCollider
+.. title: Additive Synthesis in SuperCollider
 .. slug: additive-synthesis-in-supercollider
 .. date: 2021-05-02 10:40:00 UTC
 .. tags:
@@ -93,12 +93,12 @@ method of the array class:
 Exercises
 =========
 
-.. admonition:: Exercise
+.. admonition:: Exercise I
 
-    Combine the example with a mouse control, allowing to change the timbre and
-    the pitch.
+    Adjust the partial weight formula to generate basic waveforms (square, sawtooth, triangle). Monitor the signal in the scope to verify. Try different numbers of partials and compare the results.
 
 
-.. admonition:: Exercise
+.. admonition:: Exercise II
 
-    Adjust the partial weight formula to generate basic waveforms (square, sawtooth, triangle).
+    Combine the example with a mouse control, allowing to change two parameters of the timbre or
+    partial frequencies.

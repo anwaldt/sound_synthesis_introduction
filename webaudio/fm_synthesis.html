@@ -8,6 +8,9 @@
 
 <body>
 
+<center>
+
+  <button style="background-color: #1E90FF" onclick="startAudio()">Start Audio</button>
 
 
 <p><p>Carrier (Hz): <span id="carrier_text"></span></p>
@@ -23,7 +26,7 @@
 </p>
 
 <p><p>Gain: <span id="gain_text"></span></p>
-<input type="range" min="0" max="1" value="0" class="slider"   step="0.01"  oninput="set_gain(this.value)">
+<input type="range" min="0" max="1" value="0.2" class="slider"   step="0.01"  oninput="set_gain(this.value)">
 </p>
 
 <div class="scope-box">
@@ -60,7 +63,7 @@ modulator.frequency.setValueAtTime(60, context.currentTime);
 modulator.start();
 
 var gain = context.createGain();
-gain.gain.value = 0;
+gain.gain.value = 0.2;
 
 var mod_depth = context.createGain();
 mod_depth.gain.value = 100;
@@ -85,6 +88,11 @@ var scopeCtx = document.getElementById('scope').getContext('2d');
 var spectCtx = document.getElementById('spectrum').getContext('2d');
 
 draw();
+
+function startAudio()
+{
+  context.resume()
+}
 
 function draw() {
   drawSpectrum(analyser, spectCtx);
