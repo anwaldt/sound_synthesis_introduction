@@ -1,10 +1,10 @@
 .. title: Digital Synthesis: Trends and Developments
 .. slug: synthesis-algorithms-overwiew-3
 .. date: 2020-04-27 22:00:32 UTC
-.. tags: 
+.. tags:
 .. category: _sound_synthesis:introduction_2
-.. link: 
-.. description: 
+.. link:
+.. description:
 .. type: text
 
 
@@ -42,6 +42,3 @@ variety of sounds in real-time since the 1990s,
 but their integration into musical instruments
 is a much wider topic, with many possibilities to explore
 and stil lags behind.
-
-
-

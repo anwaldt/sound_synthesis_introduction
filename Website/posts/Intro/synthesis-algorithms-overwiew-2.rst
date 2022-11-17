@@ -1,10 +1,10 @@
 .. title: Digital Synthesis: Applications
 .. slug: synthesis-algorithms-overwiew-2
 .. date: 2020-04-27 21:00:32 UTC
-.. tags: 
+.. tags:
 .. category: _sound_synthesis:introduction_2
-.. link: 
-.. description: 
+.. link:
+.. description:
 .. type: text
 
 
@@ -25,8 +25,10 @@ Also, the table in Fig.1 suggests the versatility of granular
 and concatenative synthesis.
 
 .. figure:: /images/Sound_Synthesis/taxonomy_42.png
-	   :width: 400
-		   
+	:width: 60%
+	:figwidth: 100%
+	:align: center
+
 .. [Fig.1] *Synthesis goals and suitable approaches (Misra et al, 2009)*
 
 ------
@@ -47,7 +49,7 @@ software synthesizers simulate classic FM synthesizers.
 
 
 
-	   
+
 ------
 
 References
@@ -55,4 +57,3 @@ References
 
 .. publication_list:: bibtex/synthesis_overview.bib
 	   :style: unsrt
-

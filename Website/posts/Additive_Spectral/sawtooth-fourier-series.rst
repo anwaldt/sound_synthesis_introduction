@@ -7,7 +7,7 @@
 .. description:
 .. type: text
 .. has_math: true
-.. priority: 2
+.. priority: 1
 
 Formula
 -------
@@ -18,7 +18,9 @@ The sawtooth is an asymmetric waveform with a sharp timbre. The related Fourier 
 - alternating sign
 - slow decrease towards higher partials
 
-:math:`X(t) = \frac{2}{\pi} \sum\limits_{k=1}^{N} (-1)^i \frac{\sin(2 \pi i f\ t)}{i}`
+.. math::
+
+  X(t) = \frac{2}{\pi} \sum\limits_{k=1}^{N} (-1)^i \frac{\sin(2 \pi i f\ t)}{i}
 
 ----
 

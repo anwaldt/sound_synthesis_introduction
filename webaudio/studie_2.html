@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html>
+
+<center>
+
+
+  <head>
+    <link rel="stylesheet" href="/media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/webaudio/webaudio_style.css">
+  </head>
+
+  <body>
+
+    <button style="background-color: #1E90FF" onclick="startAudio()">Start Audio</button>
+
+
+    <p><p>Pitch (Hz): <span id="oscillatorA_text"></span></p>
+
+    <input type="range" min="100" max="4760" value="100" class="slider"   step="1.066"  oninput="set_osc_freq(this.value)">
+  </p>
+
+
+
+  <p>Spacing Factor:
+    <form>
+      <input type="radio" name="spacing" value="1" onclick="set_spacing(this.value)" checked="checked"> 1
+      <input type="radio" name="spacing" value="2" onclick="set_spacing(this.value)"> 2
+      <input type="radio" name="spacing" value="3" onclick="set_spacing(this.value)"> 3
+      <input type="radio" name="spacing" value="4" onclick="set_spacing(this.value)"> 4
+      <input type="radio" name="spacing" value="5" onclick="set_spacing(this.value)"> 5
+    </form>
+  </p>
+
+
+
+
+  <p><p>P1 (Hz): <span id="p1_text"></span></p>
+  <p><p>P2 (Hz): <span id="p2_text"></span></p>
+  <p><p>P3 (Hz): <span id="p3_text"></span></p>
+  <p><p>P4 (Hz): <span id="p4_text"></span></p>
+  <p><p>P5 (Hz): <span id="p5_text"></span></p>
+
+<p><p>Output Gain: <span id="gain_text"></span></p>
+<input type="range" min="0" max="1" value="0.2" class="slider"   step="0.01"  oninput="set_gain(this.value)">
+</p>
+
+
+<p>Envelope:
+  <form>
+    <input type="button" name="envelope" value="falling"  onclick="trigger_sound(this.value)">
+    <input type="button" name="envelope" value="rising" onclick="trigger_sound(this.value)">
+    <input type="button" name="envelope" value="steady"  onclick="trigger_sound(this.value)">
+  </form>
+</p>
+
+
+
+
+<div class="scope-box">
+
+  Time Domain:
+  <p>
+    <canvas id='scope' width=400 height=200></canvas>
+  </p>
+
+  Frequency Domain:
+  <p>
+    <canvas id='spectrum' width=400 height=200></canvas>
+  </p>
+
+</div>
+
+</body>
+
+</center>
+
+<script type="text/javascript">
+
+var context     = new AudioContext();
+
+var analyser    = context.createAnalyser();
+var outgain     = context.createGain();
+
+let spacingFactor = 1
+let rootFrequency = 1
+
+const oscillators   = [];
+const gains         = [];
+
+for(let i = 0; i < 5; i++)
+{
+
+  const osc           = context.createOscillator();
+  osc.frequency.value = 110 * 2 ** i;
+  osc.type            = 'sine';
+  osc.start();
+
+  const gain      = context.createGain();
+  gain.gain.value = 0;
+
+  osc.connect(gain);
+  gain.connect(outgain);
+
+  oscillators.push(osc);
+  gains.push(gain);
+
+
+}
+
+set_osc_freq(440);
+
+outgain.connect(analyser);
+
+analyser.connect(context.destination);
+
+
+
+analyser.fftSize = 2048;
+
+analyser.minDecibels = -120;
+analyser.maxDecibels = 0;
+
+var scopeCtx = document.getElementById('scope').getContext('2d');
+var spectCtx = document.getElementById('spectrum').getContext('2d');
+
+draw();
+
+function startAudio()
+{
+  set_osc_freq(100)
+  set_gain(0.2)
+
+  context.resume()
+}
+
+function draw()
+{
+  drawSpectrum(analyser, spectCtx);
+  drawScope(analyser, scopeCtx);
+  requestAnimationFrame(draw);
+}
+
+function drawSpectrum(analyser, ctx)
+{
+  var width    = ctx.canvas.width;
+  var height   = ctx.canvas.height;
+  var freqData = new Uint8Array(analyser.frequencyBinCount);
+  var scaling  = height / 256;
+
+  analyser.getByteFrequencyData(freqData);
+
+  ctx.fillStyle = 'rgba(256, 256, 256, 0.1)';
+  ctx.fillRect(0, 0, width, height);
+
+  ctx.lineWidth   = 2;
+  ctx.strokeStyle = 'rgb(0, 0, 0)';
+  ctx.beginPath();
+
+  for (var x = 0; x < width; x++)
+  ctx.lineTo(x, height - freqData[x] * scaling);
+
+  ctx.stroke();
+}
+
+function drawScope(analyser, ctx) {
+  var width    = ctx.canvas.width;
+  var height     = ctx.canvas.height;
+  var timeData   = new Uint8Array(analyser.frequencyBinCount);
+  var scaling    = height / 256;
+  var risingEdge = 0;
+  var edgeThreshold = 0.1;
+
+  analyser.getByteTimeDomainData(timeData);
+
+  ctx.fillStyle = 'rgba(256, 256, 256, 0.1)';
+  ctx.fillRect(0, 0, width, height);
+
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = 'rgb(0, 0, 0)';
+  ctx.beginPath();
+
+  // No buffer overrun protection
+  while (timeData[risingEdge++] - 128 > 0 && risingEdge <= width);
+  if (risingEdge >= width) risingEdge = 0;
+
+  while (timeData[risingEdge++] - 128 < edgeThreshold && risingEdge <= width);
+  if (risingEdge >= width) risingEdge = 0;
+
+  for (var x = risingEdge; x < timeData.length && x - risingEdge < width; x++)
+  ctx.lineTo(x - risingEdge, height - timeData[x] * scaling);
+
+  ctx.stroke();
+}
+
+function set_oscillator_texts()
+{
+  var output = document.getElementById('p1_text');
+  output.innerHTML = oscillators[0].frequency.value.toFixed(2);;
+
+    output = document.getElementById('p2_text');
+  output.innerHTML = oscillators[1].frequency.value.toFixed(2);;
+
+    output = document.getElementById('p3_text');
+  output.innerHTML = oscillators[2].frequency.value.toFixed(2);;
+
+    output = document.getElementById('p4_text');
+  output.innerHTML = oscillators[3].frequency.value.toFixed(2);;
+
+    output = document.getElementById('p5_text');
+  output.innerHTML = oscillators[4].frequency.value.toFixed(2);;
+}
+
+function trigger_sound(envType)
+{
+  switch (envType) {
+    case 'falling':
+
+    //oscillators.forEach((n, i) => { oscillators[i].setValueCurveAtTime(1.0) });
+    //oscillators.forEach((n, i) => { oscillators[i].linearRampToValueAtTime(0.0, audioCtx.currentTime + 2); });
+
+    gains.forEach(function (arrayItem) {
+      arrayItem.gain.linearRampToValueAtTime(1.0, context.currentTime);
+      arrayItem.gain.linearRampToValueAtTime(0.0, context.currentTime + 1.0);
+    });
+
+    break
+  }
+}
+
+function set_spacing(y)
+{
+  spacingFactor = y
+  set_osc_freq(rootFrequency)
+}
+
+function set_osc_freq(y)
+{
+
+  y = parseFloat(y);
+  rootFrequency = y
+
+  for(let i = 0; i < 5; i++)
+  {
+
+    var val = Math.pow(5, (i*spacingFactor)/25)
+
+    var f =  (y * val);
+
+    oscillators[i].frequency.setValueAtTime(f, context.currentTime);
+    var output = document.getElementById('oscillatorA_text');
+    output.innerHTML = y;
+  }
+
+  set_oscillator_texts()
+
+}
+
+
+
+function set_gain(y)
+{
+  outgain.gain.value = y
+}
+
+
+</script>
+
+</html>

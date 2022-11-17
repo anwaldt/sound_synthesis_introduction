@@ -7,7 +7,7 @@
 .. description:
 .. type: text
 .. has_math: true
-.. priority: 4
+.. priority: 3
 
 Formula
 -------
@@ -18,7 +18,9 @@ The triangular wave is a symmetric waveform with a stronger decrease towards hig
 - altering sign
 -  (squared)
 
-:math:`X(t) = \frac{8}{\pi^2} \sum\limits_{i=0}^{N} (-1)^{(i)} \frac{\sin(2 \pi (2i +1) f\ t)}{(2i +1)^2}`
+.. math::
+
+  \displaystyle X(t) = \frac{8}{\pi^2} \sum\limits_{i=0}^{N} (-1)^{(i)} \frac{\sin(2 \pi (2i +1) f\ t)}{(2i +1)^2}
 
 -----
 

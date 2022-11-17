@@ -1,37 +1,14 @@
 .. title: Digital Synthesis: History & Taxonomy
 .. slug: synthesis-algorithms-overwiew-1
 .. date: 2020-04-27 15:00:32 UTC
-.. tags: 
+.. tags:
 .. category: _sound_synthesis:introduction_2
-.. link: 
-.. description: 
+.. link:
+.. description:
 .. type: text
 
 
 
-
-Family Tree
------------
-
-The synthesis experiments at Bell Labs are the
-origin of most methods for digital sound synthesis.
-[Fig.1]_ illustrates the relations for a subset of
-synthesis approaches, starting with Mathews.
-The foundation for many further developments was
-laid when John Chowning brought the software MUSIC VI
-to Stanford from a visit at Bell Labs (Chowning, 2011).
-After migrating it to a *PDP-6* computer,
-Chowning worked on his groundbreaking digital compositions,
-using the FM method and spatial techniques.
-
- 
-.. figure:: /images/Sound_Synthesis/bilbao_history.png
-	   :width: 600
-.. [Fig.1] *Evolution and family tree (Bilbao, 2009).*
-
-
-------
-	   
 Taxonomy
 --------
 
@@ -42,9 +19,11 @@ shown in [Fig.2]_.
 
 
 .. figure:: /images/Sound_Synthesis/synthesis_taxonomy_SMITH.png
-	   :width: 600
-		   
-.. [Fig.2]	   *Taxonomy of synthesis algorithms (Smith, 1991).*
+  :width: 60%
+  :figwidth: 100%
+  :align: center
+
+.. [Fig.2] *Taxonomy of synthesis algorithms (Smith, 1991).*
 
 
 
@@ -90,13 +69,13 @@ Abstract Algorithm
     or a physical model, it is an abstract algorithm.
     Algorithms from this category transfer methods
     from other domains, like message transmission,
-    to the musical domain. 
+    to the musical domain.
 
 
 Missing Recent Approaches
 =========================
-    
-Although a few categorisations could be debated, 
+
+Although a few categorisations could be debated,
 the above introduced taxonomy is still valid
 but misses some recent developments.
 Methods based on neural networks and deep
@@ -106,6 +85,33 @@ considered a fifth taxon.
 
 -----
 
+
+
+Family Tree
+-----------
+
+The synthesis experiments at Bell Labs are the
+origin of most methods for digital sound synthesis.
+[Fig.1]_ illustrates the relations for a subset of
+synthesis approaches, starting with Mathews.
+The foundation for many further developments was
+laid when John Chowning brought the software MUSIC VI
+to Stanford from a visit at Bell Labs (Chowning, 2011).
+After migrating it to a *PDP-6* computer,
+Chowning worked on his groundbreaking digital compositions,
+using the FM method and spatial techniques.
+
+
+.. figure:: /images/Sound_Synthesis/bilbao_history.png
+  :width: 60%
+  :figwidth: 100%
+  :align: center
+
+.. [Fig.1] *Evolution and family tree (Bilbao, 2009).*
+
+
+------
+
+
 .. publication_list:: bibtex/synthesis_overview.bib
 	   :style: unsrt
-

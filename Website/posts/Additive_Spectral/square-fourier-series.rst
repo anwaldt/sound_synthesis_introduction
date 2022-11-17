@@ -7,7 +7,7 @@
 .. description:
 .. type: text
 .. has_math: true
-.. priority: 3
+.. priority: 2
 
 Formula
 -------
