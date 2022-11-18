@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+	<html>
+
+	<center>
+		<head>
+	    <link rel="stylesheet" href="/media/anwaldt/ANWALDT_2TB/WORK/TEACHING/Sound_Synthesis_Introduction/webaudio/webaudio_style.css">
+	  </head>
+	  <body>
+
+
+  	 <input type="button" style="margin-right: 4em" name="b1" value="1.0595"  onclick="trigger_1()">
+	 <input type="button" style="margin-left: 4em" name="b2" value="1.0665"  onclick="trigger_2()">
+
+	</body>
+
+	</center>
+
+	<script type="text/javascript">
+
+	var ctx1     = new AudioContext();
+
+  	const osc1           = ctx1.createOscillator();
+  	osc1.frequency.value = 443;
+  	osc1.type            = 'sine';
+  	osc1.start();
+
+  	const osc2           = ctx1.createOscillator();
+   	osc2.type            = 'sine';
+  	osc2.start();
+
+  	const gain      = ctx1.createGain();
+  	gain.gain.value = 1;
+
+  	osc1.connect(gain);
+	 osc2.connect(gain);
+
+	gain.connect(ctx1.destination);
+
+
+	function trigger_1()
+	{
+	  ctx1.resume()
+	  osc2.frequency.value = osc1.frequency.value*1.0595
+		gain.gain.setValueAtTime(0.0, ctx1.currentTime);
+	  gain.gain.linearRampToValueAtTime(0.4, ctx1.currentTime + 0.2);
+	  gain.gain.linearRampToValueAtTime(0.0, ctx1.currentTime + 2.0 + 0.2);
+ 	}
+
+	function trigger_2()
+	{
+		ctx1.resume()
+ 	  osc2.frequency.value = osc1.frequency.value*1.0665
+		gain.gain.setValueAtTime(0.0, ctx1.currentTime);
+		gain.gain.linearRampToValueAtTime(0.4, ctx1.currentTime + 0.2);
+	  gain.gain.linearRampToValueAtTime(0.0, ctx1.currentTime + 2.0 + 0.2);
+	}
+	</script>
+
+	</html>

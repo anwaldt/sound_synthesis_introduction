@@ -11,9 +11,6 @@
 
   <body>
 
-    <button style="background-color: #1E90FF" onclick="startAudio()">Start Audio</button>
-
-
     <p><p>Pitch (Hz): <span id="oscillatorA_text"></span></p>
 
     <input type="range" min="100" max="4760" value="100" class="slider"   step="1.066"  oninput="set_osc_freq(this.value)">
@@ -40,16 +37,19 @@
   <p><p>P4 (Hz): <span id="p4_text"></span></p>
   <p><p>P5 (Hz): <span id="p5_text"></span></p>
 
-<p><p>Output Gain: <span id="gain_text"></span></p>
-<input type="range" min="0" max="1" value="0.2" class="slider"   step="0.01"  oninput="set_gain(this.value)">
+  <p><p>Output Gain: <span id="gain_text"></span></p>
+  <input type="range" min="0" max="1" value="0.2" class="slider"   step="0.01"  oninput="set_gain(this.value)">
 </p>
 
+  <p><p>Duration (seconds): <span id="duration_text"></span></p>
+  <input type="range" min="0.1" max="5" value="0.5" class="slider"   step="0.1"  oninput="set_duration(this.value)">
+</p>
 
 <p>Envelope:
   <form>
-    <input type="button" name="envelope" value="falling"  onclick="trigger_sound(this.value)">
-    <input type="button" name="envelope" value="rising" onclick="trigger_sound(this.value)">
-    <input type="button" name="envelope" value="steady"  onclick="trigger_sound(this.value)">
+    <input type="button" name="fallingBtn" value="falling"  onclick="trigger_sound(this.value)">
+    <input type="button" name="risingBtn" value="rising"   onclick="trigger_sound(this.value)">
+    <input type="button" name="steadyBtn" value="steady"   onclick="trigger_sound(this.value)">
   </form>
 </p>
 
@@ -81,8 +81,12 @@ var context     = new AudioContext();
 var analyser    = context.createAnalyser();
 var outgain     = context.createGain();
 
-let spacingFactor = 1
 let rootFrequency = 1
+
+let spacingFactor = 1
+
+
+let duration      = 0.5
 
 const oscillators   = [];
 const gains         = [];
@@ -107,7 +111,12 @@ for(let i = 0; i < 5; i++)
 
 }
 
-set_osc_freq(440);
+
+set_osc_freq(100);
+set_spacing(1)
+set_duration(0.5)
+set_osc_freq(100)
+set_gain(0.15)
 
 outgain.connect(analyser);
 
@@ -125,13 +134,6 @@ var spectCtx = document.getElementById('spectrum').getContext('2d');
 
 draw();
 
-function startAudio()
-{
-  set_osc_freq(100)
-  set_gain(0.2)
-
-  context.resume()
-}
 
 function draw()
 {
@@ -191,38 +193,57 @@ function drawScope(analyser, ctx) {
 
   ctx.stroke();
 }
+function set_duration(d)
+{
+  document.getElementById('duration_text').innerHTML = d
+  duration = parseFloat(d);
+
+}
 
 function set_oscillator_texts()
 {
   var output = document.getElementById('p1_text');
   output.innerHTML = oscillators[0].frequency.value.toFixed(2);;
 
-    output = document.getElementById('p2_text');
+  output = document.getElementById('p2_text');
   output.innerHTML = oscillators[1].frequency.value.toFixed(2);;
 
-    output = document.getElementById('p3_text');
+  output = document.getElementById('p3_text');
   output.innerHTML = oscillators[2].frequency.value.toFixed(2);;
 
-    output = document.getElementById('p4_text');
+  output = document.getElementById('p4_text');
   output.innerHTML = oscillators[3].frequency.value.toFixed(2);;
 
-    output = document.getElementById('p5_text');
+  output = document.getElementById('p5_text');
   output.innerHTML = oscillators[4].frequency.value.toFixed(2);;
 }
 
 function trigger_sound(envType)
 {
+  context.resume()
+
   switch (envType) {
+
     case 'falling':
-
-    //oscillators.forEach((n, i) => { oscillators[i].setValueCurveAtTime(1.0) });
-    //oscillators.forEach((n, i) => { oscillators[i].linearRampToValueAtTime(0.0, audioCtx.currentTime + 2); });
-
     gains.forEach(function (arrayItem) {
-      arrayItem.gain.linearRampToValueAtTime(1.0, context.currentTime);
-      arrayItem.gain.linearRampToValueAtTime(0.0, context.currentTime + 1.0);
+      arrayItem.gain.linearRampToValueAtTime(1.0, context.currentTime + 0.1);
+      arrayItem.gain.linearRampToValueAtTime(0.0, context.currentTime + duration + 0.1);
     });
+    break
 
+    case 'rising':
+    gains.forEach(function (arrayItem) {
+      arrayItem.gain.linearRampToValueAtTime(1.0, context.currentTime + duration+0.01);
+      arrayItem.gain.linearRampToValueAtTime(0.0, context.currentTime + duration+ 0.01+0.1);
+    });
+    break
+
+    case 'steady':
+    gains.forEach(function (arrayItem) {
+      arrayItem.gain.linearRampToValueAtTime(1.0, context.currentTime  + 0.1);
+      arrayItem.gain.linearRampToValueAtTime(0.99, context.currentTime + duration);
+      arrayItem.gain.linearRampToValueAtTime(0.0, context.currentTime  + duration+ 0.1+0.1);
+    });
     break
   }
 }
