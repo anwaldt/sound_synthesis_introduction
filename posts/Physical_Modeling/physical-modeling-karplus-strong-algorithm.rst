@@ -10,7 +10,7 @@
 .. priority: 2
 
 .. raw:: html
-    :file: ../Sound_Synthesis_Introduction/Website/jupyter/karplus_strong.html
+    :file: ../Sound_Synthesis_Introduction/jupyter/karplus_strong.html
 
 References
 ==========

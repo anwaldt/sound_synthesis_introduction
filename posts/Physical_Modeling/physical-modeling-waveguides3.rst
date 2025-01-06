@@ -11,4 +11,4 @@
 
 
 .. raw:: html
-    :file: ../Sound_Synthesis_Introduction/Website/jupyter/waveguides_losses.html
+    :file: ../Sound_Synthesis_Introduction/jupyter/waveguides_losses.html

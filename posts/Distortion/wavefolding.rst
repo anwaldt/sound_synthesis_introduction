@@ -12,4 +12,4 @@
 
 
 .. raw:: html
-   :file: ../Sound_Synthesis_Introduction/Website/jupyter/wavefolder.html
+   :file: ../Sound_Synthesis_Introduction/jupyter/wavefolder.html

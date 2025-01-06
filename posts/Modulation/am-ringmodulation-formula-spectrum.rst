@@ -12,4 +12,4 @@
 
 
 .. raw:: html
-    :file: ../Sound_Synthesis_Introduction/Website/jupyter/am_ringmod.html
+    :file: ../Sound_Synthesis_Introduction/jupyter/am_ringmod.html

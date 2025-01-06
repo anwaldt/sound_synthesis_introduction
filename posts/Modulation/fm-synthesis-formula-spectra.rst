@@ -10,4 +10,4 @@
 .. priority: 5
 
 .. raw:: html
-   :file: ../Sound_Synthesis_Introduction/Website/jupyter/fm_spectra.html
+   :file: ../Sound_Synthesis_Introduction/jupyter/fm_spectra.html

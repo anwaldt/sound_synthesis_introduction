@@ -10,11 +10,8 @@
 .. priority: 14
 
 
-
-
-
 .. raw:: html
-   :file: ../Sound_Synthesis_Introduction/Website/jupyter/bilinear-rc.html
+   :file: ../Sound_Synthesis_Introduction/jupyter/bilinear-rc.html
 
 
 ----

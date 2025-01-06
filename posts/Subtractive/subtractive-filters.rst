@@ -11,4 +11,4 @@
 
 
 .. raw:: html
-   :file: ../Sound_Synthesis_Introduction/Website/jupyter/filters.html
+   :file: ../Sound_Synthesis_Introduction/jupyter/filters.html

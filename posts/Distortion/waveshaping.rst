@@ -11,4 +11,4 @@
 
 
 .. raw:: html
-   :file: ../Sound_Synthesis_Introduction/Website/jupyter/waveshaper-function.html
+   :file: ../Sound_Synthesis_Introduction/jupyter/waveshaper-function.html

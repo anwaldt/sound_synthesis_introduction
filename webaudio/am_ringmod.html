@@ -23,7 +23,7 @@
 </p>
 
 <p><p>Output Gain: <span id="gain_text"></span></p>
-<input type="range" min="0" max="1" value="0.2" class="slider"   step="0.01"  oninput="set_gain(this.value)">
+<input type="range" min="0" max="1" value="0" class="slider"   step="0.01"  oninput="set_gain(this.value)">
 </p>
 
 <div class="scope-box">
@@ -111,6 +111,7 @@ function modOffset(y)
 
 function set_gain(y)
 {
+  audioContext.resume()
   outgain.gain.value = y
 }
 
